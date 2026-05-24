@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import HomePageShell from '../components/HomePageShell.astro';
+import { BRAND_NAME, LINE_URL } from '../data/site';
+
+const pageTitle = `找不到頁面｜${BRAND_NAME}`;
+const pageDescription = '您造訪的頁面不存在或已移動，請返回首頁或選擇胡志明、峴港行程。';
+
+const linkClass =
+	'font-brand-cn inline-flex items-center justify-center rounded-xl border border-[#1A2333] bg-[#131722]/80 px-5 py-3 text-sm font-medium text-[#CCCCCC] transition hover:border-[#800020]/50 hover:bg-[#1A2333]/60 hover:text-[#FFFFFF]';
+
+const primaryClass =
+	'font-brand-cn inline-flex items-center justify-center rounded-xl bg-[#800020] px-6 py-3 text-sm font-semibold text-[#FFFFFF] transition hover:bg-[#990026]';
+---
+
+<html lang="zh-Hant" class="scroll-smooth bg-[#0A0D14] antialiased">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, follow" />
+		<meta name="description" content={pageDescription} />
+		<title>{pageTitle}</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="min-h-screen bg-[#0A0D14] font-sans text-[#CCCCCC] antialiased">
+		<HomePageShell>
+			<Navbar />
+
+			<main
+				class="flex min-h-[calc(100vh-12rem)] w-full flex-col items-center justify-center px-4 py-16 text-center"
+			>
+				<p class="text-7xl font-black leading-none text-[#800020]/80 md:text-8xl" aria-hidden="true">
+					404
+				</p>
+				<h1 class="mt-4 text-2xl font-bold text-[#FFFFFF] md:text-3xl">找不到這個頁面</h1>
+				<p class="mt-3 max-w-md text-sm leading-relaxed text-[#888888] md:text-base">
+					{pageDescription}
+				</p>
+
+				<div class="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+					<a href="/" class={primaryClass}>返回首頁</a>
+					<a href="/ho-chi-minh" class={linkClass}>胡志明行程</a>
+					<a href="/da-nang" class={linkClass}>峴港行程</a>
+				</div>
+
+				<a
+					href={LINE_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-6 text-sm font-medium text-[#06C755] transition hover:text-[#34d86a]"
+				>
+					或透過 LINE 立即諮詢 →
+				</a>
+			</main>
+
+			<footer
+				class="relative z-10 flex w-full flex-col items-center border-t border-[#1A2333]/80 bg-[#0A0D14]/50 py-6 text-center text-xs text-[#555555]"
+			>
+				<p>© {new Date().getFullYear()} {BRAND_NAME}</p>
+			</footer>
+
+			<ScrollToTop />
+		</HomePageShell>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+---
+import { pricingPackages, includedItems, soloTravelOption } from '../data/hoChiMinhPricing';
+
+interface Props {
+	cityZh?: string;
+	cityEn?: string;
+}
+
+const { cityZh = '胡志明', cityEn = 'HO CHI MINH' } = Astro.props;
+---
+
+<div id="panel-pricing" class="tab-panel main-panel w-full" hidden>
+	<article class="w-full text-left">
+		<div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+			<div>
+				<h2 class="text-2xl font-bold text-[#FFFFFF] md:text-3xl">{cityZh}參團團費</h2>
+				<p class="mt-1 text-sm text-[#888888]">{cityEn} · 每位報價 · 透明不追加</p>
+			</div>
+			<p class="text-xs text-[#888888]">
+				＊以下為 <span class="font-semibold text-[#F5C542]">每位</span> 參考價格 (三人以上可開團)＊
+			</p>
+		</div>
+
+		<div class="overflow-hidden rounded-2xl border border-[#1A2333]">
+			<div class="grid grid-cols-1 md:grid-cols-3">
+				{
+					pricingPackages.map((pkg, i) => (
+						<div
+							class:list={[
+								'relative flex flex-col bg-[#131722] p-6 md:p-7',
+								i > 0 && 'border-t border-[#1A2333] md:border-t-0 md:border-l',
+								pkg.highlight &&
+									'bg-[#16121c] md:z-10 md:shadow-[0_0_40px_rgba(128,0,32,0.12)]',
+							]}
+						>
+							{pkg.badge && (
+								<span class="absolute top-4 right-4 rounded-sm bg-[#800020] px-2 py-0.5 text-[10px] font-bold tracking-wide text-[#FFFFFF]">
+									{pkg.badge}
+								</span>
+							)}
+							<h3 class="text-2xl font-bold text-[#FFFFFF] md:text-3xl">{pkg.days}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-[#888888]">{pkg.tagline}</p>
+							<p class="mt-6 text-3xl font-bold tracking-tight text-[#F5C542] md:text-4xl">
+								{pkg.price}
+								<span class="ml-1 text-sm font-medium text-[#888888]">起</span>
+							</p>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="border-t border-[#1A2333] bg-[#12161f] p-6 md:p-7">
+				<h3 class="text-xl font-bold text-[#FFFFFF] md:text-2xl">{soloTravelOption.title}</h3>
+				<p class="mt-2 text-sm leading-relaxed text-[#888888] md:text-base">
+					{soloTravelOption.tagline}
+				</p>
+			</div>
+
+			<div class="border-t border-[#1A2333] bg-[#0f1219] px-6 py-8 md:px-8">
+				<div
+					class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+				>
+					<h3 class="text-lg font-bold text-[#FFFFFF] md:text-xl">團費包含</h3>
+					<p
+						class="text-right text-sm font-semibold tracking-wide text-[#F5C542] md:text-base"
+					>
+						不包含：機票/簽證/餐飲/當地娛樂費用
+					</p>
+				</div>
+				<ol class="mt-5 space-y-3">
+					{
+						includedItems.map((item, i) => (
+							<li class="flex gap-3 text-sm leading-relaxed text-[#CCCCCC] md:text-base">
+								<span class="shrink-0 font-bold text-[#800020]">{i + 1}.</span>
+								<span>
+									<span class="font-bold text-[#FFFFFF]">{item.label}</span>：{item.desc}
+								</span>
+							</li>
+						))
+					}
+				</ol>
+			</div>
+		</div>
+	</article>
+</div>

@@ -1,0 +1,90 @@
+---
+import type { PlayItem } from '../data/hoChiMinhPlay';
+
+interface Props {
+	dayItems: PlayItem[];
+	nightItems: PlayItem[];
+}
+
+const { dayItems, nightItems } = Astro.props;
+
+const mediaClass = (fit: PlayItem['imageFit']) =>
+	`play-card__media relative flex w-full shrink-0 overflow-hidden ${
+		fit === 'tall'
+			? 'play-card__media--tall aspect-[3/4] md:aspect-auto md:min-h-[280px]'
+			: 'aspect-[4/3] md:aspect-auto md:min-h-[180px]'
+	} md:w-2/5`;
+
+const imageClass = (fit: PlayItem['imageFit']) =>
+	fit === 'tall'
+		? 'absolute inset-0 h-full w-full object-cover object-[center_50%]'
+		: 'absolute inset-0 h-full w-full object-cover object-center';
+---
+
+<div id="panel-intro" class="tab-panel main-panel w-full text-left">
+	<div id="subpanel-day" class="tab-panel sub-panel w-full">
+		<div class="flex w-full flex-col gap-6">
+			{
+				dayItems.map((item) => (
+					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-[#222C3F] bg-[#131722]/90 md:flex-row md:items-stretch">
+						<div class={mediaClass(item.imageFit)}>
+							{
+								item.image ? (
+									<img
+										src={item.image}
+										alt={item.title}
+										width="640"
+										height="480"
+										loading="lazy"
+										class={imageClass(item.imageFit)}
+									/>
+								) : (
+									<span class="flex h-full w-full items-center justify-center text-sm text-[#666666]">
+										待置入圖片
+									</span>
+								)
+							}
+						</div>
+						<div class="flex flex-1 flex-col items-start justify-start p-6 text-left">
+							<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">{item.title}</h3>
+							<p class="text-sm leading-relaxed text-[#CCCCCC]">{item.desc}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+
+	<div id="subpanel-night" class="tab-panel sub-panel w-full" hidden>
+		<div class="flex w-full flex-col gap-6">
+			{
+				nightItems.map((item) => (
+					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-[#222C3F] bg-[#131722]/90 md:flex-row md:items-stretch">
+						<div class={mediaClass(item.imageFit)}>
+							{
+								item.image ? (
+									<img
+										src={item.image}
+										alt={item.title}
+										width="640"
+										height="480"
+										loading="lazy"
+										class={imageClass(item.imageFit)}
+									/>
+								) : (
+									<span class="flex h-full w-full items-center justify-center text-sm text-[#666666]">
+										待置入圖片
+									</span>
+								)
+							}
+						</div>
+						<div class="flex flex-1 flex-col items-start justify-start p-6 text-left">
+							<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">{item.title}</h3>
+							<p class="text-sm leading-relaxed text-[#CCCCCC]">{item.desc}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</div>

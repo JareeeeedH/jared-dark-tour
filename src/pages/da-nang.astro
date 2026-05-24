@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+import CityHeroFeatures from '../components/CityHeroFeatures.astro';
+import PlayIntroPanel from '../components/PlayIntroPanel.astro';
+import TourSubNav from '../components/TourSubNav.astro';
+import TourMainTabs from '../components/TourMainTabs.astro';
+import HoChiMinhPricing from '../components/HoChiMinhPricing.astro';
+import CityPageShell from '../components/CityPageShell.astro';
+import Navbar from '../components/Navbar.astro';
+import CityCta from '../components/CityCta.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import SeoMeta from '../components/SeoMeta.astro';
+import { BRAND_NAME } from '../data/site';
+import { daNangCityIntro } from '../data/cityFeatures';
+import { dayPlay, nightPlay } from '../data/daNangPlay';
+
+const pageTitle = '峴港市 ｜ 海島度假與暗夜慢天堂 ｜ 傑瑞暗黑團';
+const pageDescription =
+	`${BRAND_NAME} 峴港市專屬導覽：美溪沙灘、會安古鎮、海島奧黛店與慢節奏夜生活。高性價比紳士度假方案，全程匿名防坑、保姆車隱密接送。`;
+---
+
+<html lang="zh-Hant" class="scroll-smooth bg-[#0A0D14] antialiased">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<meta
+			name="keywords"
+			content="峴港夜生活,峴港KTV,奧黛店,會安古鎮,美溪沙灘,傑瑞暗黑團,越南暗黑團"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{pageTitle}</title>
+		<SeoMeta
+			title={pageTitle}
+			description={pageDescription}
+			canonicalPath="/da-nang"
+			ogImagePath="/DaCity.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="min-h-screen bg-[#0A0D14] font-sans text-[#CCCCCC] antialiased">
+		<CityPageShell theme="da-nang">
+			<Navbar />
+
+			<main id="top" class="flex w-full flex-col items-center px-4 pb-16 text-center">
+				<a
+					href="/"
+					class="city-back-link city-enter mb-4 mt-6 text-sm transition"
+				>
+					← 返回首頁
+				</a>
+
+				<CityHeroFeatures
+					theme="da-nang"
+					cityZh="峴港"
+					cityEn="Da Nang City"
+					cityIntro={daNangCityIntro}
+					imageSrc="/DaCity.png"
+					imageAlt="峴港市夜景"
+				/>
+
+				<section
+					class="city-content-panel city-enter city-enter-d2 flex w-full max-w-5xl flex-col items-stretch p-4 md:p-6"
+				>
+					<TourMainTabs />
+					<TourSubNav />
+					<PlayIntroPanel dayItems={dayPlay} nightItems={nightPlay} />
+					<HoChiMinhPricing cityZh="峴港" cityEn="DA NANG" />
+				</section>
+
+				<CityCta cityZh="峴港" />
+			</main>
+
+			<footer
+				class="relative z-10 flex w-full flex-col items-center border-t border-[#1A2333]/80 bg-[#0A0D14]/50 py-6 text-center text-xs text-[#555555]"
+			>
+				<p>© {new Date().getFullYear()} 傑瑞暗黑團 · 峴港市專頁</p>
+			</footer>
+
+			<ScrollToTop />
+		</CityPageShell>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const mainTabBtns = document.querySelectorAll('.main-tab-btn');
+				const panelIntro = document.getElementById('panel-intro');
+				const panelPricing = document.getElementById('panel-pricing');
+				const subNavIntro = document.getElementById('sub-nav-intro');
+				const subNavPricing = document.getElementById('sub-nav-pricing');
+				const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+				const subpanelDay = document.getElementById('subpanel-day');
+				const subpanelNight = document.getElementById('subpanel-night');
+
+				const activeMain = 'bg-gradient-to-r from-[#06D6A0] to-[#0a8f72] text-[#FFFFFF]';
+				const inactiveMain = 'bg-[#131722]/90 text-[#CCCCCC]';
+				const activeSub = 'border-[#06D6A0] text-[#FFFFFF] font-bold';
+				const inactiveSub = 'border-transparent text-[#888888] font-medium';
+
+				function setMainTab(tab) {
+					mainTabBtns.forEach((btn) => {
+						const isActive = btn.getAttribute('data-main-tab') === tab;
+						btn.setAttribute('aria-selected', String(isActive));
+						btn.className =
+							'main-tab-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold transition md:px-5 md:py-2.5 md:text-sm ' +
+							(isActive ? activeMain : inactiveMain);
+					});
+					if (panelIntro) panelIntro.hidden = tab !== 'intro';
+					if (panelPricing) panelPricing.hidden = tab !== 'pricing';
+					if (subNavIntro) subNavIntro.hidden = tab !== 'intro';
+					if (subNavPricing) subNavPricing.hidden = tab !== 'pricing';
+				}
+
+				function setSubTab(tab) {
+					subTabBtns.forEach((btn) => {
+						const isActive = btn.getAttribute('data-sub-tab') === tab;
+						btn.setAttribute('aria-selected', String(isActive));
+						btn.className =
+							'sub-tab-btn border-b-2 px-2 pb-3 text-sm transition md:text-base ' +
+							(isActive ? activeSub : inactiveSub);
+					});
+					if (subpanelDay) subpanelDay.hidden = tab !== 'day';
+					if (subpanelNight) subpanelNight.hidden = tab !== 'night';
+				}
+
+				mainTabBtns.forEach((btn) => {
+					btn.addEventListener('click', () => {
+						const tab = btn.getAttribute('data-main-tab') || 'intro';
+						setMainTab(tab);
+						if (tab === 'intro') setSubTab('day');
+					});
+				});
+
+				subTabBtns.forEach((btn) => {
+					btn.addEventListener('click', () => {
+						setMainTab('intro');
+						setSubTab(btn.getAttribute('data-sub-tab') || 'day');
+					});
+				});
+
+				setMainTab('intro');
+				setSubTab('day');
+			});
+		</script>
+	</body>
+</html>

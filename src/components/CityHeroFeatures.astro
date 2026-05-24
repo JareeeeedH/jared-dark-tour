@@ -1,0 +1,157 @@
+---
+import type { FeatureItem } from '../data/cityFeatures';
+import type { CityTheme } from './CityPageShell.astro';
+
+interface Props {
+	cityZh: string;
+	cityEn: string;
+	theme?: CityTheme;
+	imageSrc?: string;
+	imageAlt?: string;
+	features?: FeatureItem[];
+	cityIntro?: string;
+	sectionTitle?: string;
+}
+
+const {
+	cityZh,
+	cityEn,
+	theme,
+	imageSrc,
+	imageAlt,
+	features = [],
+	cityIntro,
+	sectionTitle = cityIntro ? '城市特色' : '行程特色',
+} = Astro.props;
+
+const titleColor = theme === 'da-nang' ? 'var(--city-accent-title)' : '#D4AF37';
+const imageBorder =
+	theme === 'da-nang' ? 'border-[#06D6A0]/35' : 'border-[#D4AF37]/40';
+---
+
+<section class="city-enter city-enter-d1 my-5 w-full max-w-5xl px-4">
+	<div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 md:gap-6">
+		<div
+			class={`city-hero-image relative flex min-h-[192px] items-center justify-center overflow-hidden rounded-2xl border-2 ${imageBorder} md:min-h-[269px]`}
+		>
+			{
+				imageSrc ? (
+					<img
+						src={imageSrc}
+						alt={imageAlt ?? cityZh}
+						width="600"
+						height="420"
+						loading="eager"
+						fetchpriority="high"
+						class="absolute inset-0 h-full w-full rounded-2xl object-cover object-center"
+					/>
+				) : (
+					<div class="relative z-10 px-6 text-center">
+						<p class="text-sm text-[#888888]">圖片區 · 待放入</p>
+					</div>
+				)
+			}
+		</div>
+
+		<div
+			class="flex flex-col justify-center rounded-2xl bg-[#0A0D14]/40 px-2 py-4 backdrop-blur-sm md:px-4 md:py-5"
+		>
+			<h1 class="text-left text-3xl font-bold leading-none text-[#FFFFFF] md:text-4xl">
+				{cityZh}
+			</h1>
+			<p class="mt-1 text-left font-brand-en text-xs tracking-[0.2em] text-[#888888] uppercase">
+				{cityEn}
+			</p>
+
+			<h2 class="mt-3 text-left text-base font-bold md:text-lg" style={`color: ${titleColor}`}>
+				{sectionTitle}
+			</h2>
+			<div class="city-title-line mt-1.5 h-[2px] w-full" aria-hidden="true"></div>
+
+			{
+				cityIntro ? (
+					<p class="mt-4 text-left text-sm leading-relaxed text-[#CCCCCC] md:text-base">
+						{cityIntro}
+					</p>
+				) : (
+					<ul class="mt-4 w-full space-y-2.5">
+						{
+							features.map((item, i) => (
+								<li class="flex items-center gap-2.5 text-left">
+									<span
+										class="flex h-6 w-6 shrink-0 items-center justify-center"
+										style={`color: ${titleColor}`}
+										aria-hidden="true"
+									>
+										<svg
+											class="h-5 w-5"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.5"
+										>
+											{
+												i === 0 && (
+													<path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M6 20v-1a6 6 0 0 1 12 0v1" />
+												)
+											}
+											{
+												i === 1 && (
+													<path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z M4 20v-.5a8 8 0 0 1 16 0V20" />
+												)
+											}
+											{
+												i === 2 && (
+													<rect x="8" y="4" width="8" height="16" rx="4" />
+												)
+											}
+											{
+												i === 3 && (
+													<path d="M12 3 4 7v6c0 5 3.5 8 8 8s8-3 8-8V7l-8-4Z" />
+												)
+											}
+											{
+												i === 4 && (
+													<path d="M3 12h3l2-6 4 12 2-6h5" />
+												)
+											}
+											{
+												i === 5 && (
+													<path d="M5 17h14M7 17l-1-5h12l-1 5M6 12h12l-1-4H7l-1 4Z" />
+												)
+											}
+											{
+												i === 6 && (
+													<circle cx="12" cy="13" r="8" />
+												)
+											}
+											{
+												i === 7 && (
+													<path d="M12 6v6l4 2 M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" />
+												)
+											}
+											{
+												i === 8 && (
+													<path d="M2 8h4v8H2zM9 5h4v14H9zM16 8h4v8h-4z" />
+												)
+											}
+											{
+												i === 9 && (
+													<path d="M4 20V8l8-4 8 4v12H4Z M9 20v-6h6v6" />
+												)
+											}
+										</svg>
+									</span>
+									<p class="text-xs leading-snug text-[#FFFFFF] md:text-sm">
+										<span class="font-bold">{item.title}</span>
+										<span class="font-normal text-[#FFFFFF]/95"> - {item.desc}</span>
+									</p>
+								</li>
+							))
+						}
+					</ul>
+				)
+			}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,20 @@
+---
+export type CityTheme = 'ho-chi-minh' | 'da-nang';
+
+interface Props {
+	theme: CityTheme;
+}
+
+const { theme } = Astro.props;
+---
+
+<div class={`city-page city-page--${theme} relative isolate min-h-screen`}>
+	<div class="city-ambience pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+		<div class="city-ambience__orb city-ambience__orb--1"></div>
+		<div class="city-ambience__orb city-ambience__orb--2"></div>
+		<div class="city-ambience__fade"></div>
+	</div>
+	<div class="relative z-10 flex min-h-screen flex-col">
+		<slot />
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<button
+	type="button"
+	id="scroll-to-top"
+	class="scroll-to-top"
+	aria-label="回到頁首"
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2.25"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		class="h-5 w-5"
+		aria-hidden="true"
+	>
+		<path d="M12 19V5M5 12l7-7 7 7"></path>
+	</svg>
+</button>
+
+<script is:inline>
+	(() => {
+		const btn = document.getElementById('scroll-to-top');
+		if (!btn) return;
+
+		const getThreshold = () => Math.min(480, window.innerHeight * 0.35);
+
+		const toggle = () => {
+			btn.classList.toggle('is-visible', window.scrollY > getThreshold());
+		};
+
+		btn.addEventListener('click', () => {
+			const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const top = document.getElementById('top');
+			if (top) {
+				top.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+				return;
+			}
+			window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+		});
+
+		window.addEventListener('scroll', toggle, { passive: true });
+		window.addEventListener('resize', toggle, { passive: true });
+		toggle();
+	})();
+</script>
