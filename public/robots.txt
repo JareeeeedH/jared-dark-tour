@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jared-nights.com/sitemap-index.xml
+Sitemap: https://jared-dark-tour.vercel.app/sitemap-index.xml
