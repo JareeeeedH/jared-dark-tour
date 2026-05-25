@@ -3,7 +3,7 @@ export const BRAND_NAME_CN = '傑瑞夜旅';
 export const BRAND_NAME = BRAND_NAME_CN;
 
 /** 正式網域（Open Graph、canonical 等需絕對網址） */
-export const SITE_URL = 'https://jared-dark-tour.vercel.app';
+export const SITE_URL = 'https://www.jr-vntravel.com';
 
 /** 聯繫方式 */
 export const LINE_URL = 'https://line.me/R/ti/p/@780avloj';

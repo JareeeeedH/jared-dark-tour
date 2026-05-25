@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jared-dark-tour.vercel.app/sitemap-index.xml
+Sitemap: https://www.jr-vntravel.com/sitemap-index.xml
