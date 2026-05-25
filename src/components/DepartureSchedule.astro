@@ -1,0 +1,99 @@
+---
+import { LINE_URL } from '../data/site';
+
+const slots = [
+	{
+		icon: '🔥',
+		label: '6 月端午連假特調',
+		title: '胡志明奢華會所應酬局',
+		badge: '僅剩 2 組名額',
+		badgeClass: 'text-red-400 bg-red-500/10',
+	},
+	{
+		icon: '☀️',
+		label: '7 月暑期放鬆場',
+		title: '峴港海島 slow-dive 慢天堂',
+		badge: '僅剩 3 組名額',
+		badgeClass: 'text-red-400 bg-red-500/10',
+	},
+	{
+		icon: '📅',
+		label: '8 月旺季銜接場',
+		title: '胡志明・峴港客製深夜行程',
+		badge: '開放預約卡位',
+		badgeClass: 'text-amber-400 bg-amber-500/10',
+	},
+	{
+		icon: '🍂',
+		label: '9 月秋季銜接場',
+		title: '胡志明・峴港客製深夜行程',
+		badge: '開放預約卡位',
+		badgeClass: 'text-amber-400 bg-amber-500/10',
+	},
+	{
+		icon: '🌙',
+		label: '10 月深秋銜接場',
+		title: '胡志明・峴港客製深夜行程',
+		badge: '開放預約卡位',
+		badgeClass: 'text-amber-400 bg-amber-500/10',
+	},
+];
+---
+
+<section
+	id="departure-schedule"
+	class="scroll-reveal mx-auto my-10 w-full max-w-4xl px-4 md:my-12"
+	aria-labelledby="departure-schedule-heading"
+>
+	<div
+		class="rounded-xl border border-amber-500/30 bg-amber-500/5 p-6 backdrop-blur-sm md:p-7"
+	>
+		<p class="mb-3 text-center text-[11px] font-semibold tracking-[0.25em] text-amber-500/90 uppercase md:text-xs">
+			2026 近期出團檔期公告
+		</p>
+		<div class="mb-4 flex flex-wrap items-center gap-2">
+			<span class="relative flex h-3 w-3 shrink-0" aria-hidden="true">
+				<span
+					class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+				></span>
+				<span class="relative inline-flex h-3 w-3 rounded-full bg-red-500"></span>
+			</span>
+			<h3
+				id="departure-schedule-heading"
+				class="text-lg font-bold tracking-wide text-amber-500 md:text-xl"
+			>
+				2026 夏季熱門檔期卡位預告
+			</h3>
+		</div>
+
+		<div class="space-y-3 text-sm text-body md:text-base">
+			{
+				slots.map((slot) => (
+					<p class="flex flex-col gap-2 border-b border-border/80 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+						<span class="min-w-0 leading-snug">
+							{slot.icon} {slot.label}：
+							<span class="font-medium text-[#FFFFFF]">【{slot.title}】</span>
+						</span>
+						<span
+							class:list={[
+								'shrink-0 self-start rounded px-2 py-0.5 text-xs font-bold sm:self-center',
+								slot.badgeClass,
+							]}
+						>
+							{slot.badge}
+						</span>
+					</p>
+				))
+			}
+		</div>
+
+		<a
+			href={LINE_URL}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="mt-5 inline-flex w-full items-center justify-center rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-400 transition hover:border-amber-500/60 hover:bg-amber-500/15 hover:text-amber-300"
+		>
+			立即卡位 · LINE 私密諮詢
+		</a>
+	</div>
+</section>

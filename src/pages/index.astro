@@ -7,6 +7,7 @@ import ScrollToTop from '../components/ScrollToTop.astro';
 import HomePageShell from '../components/HomePageShell.astro';
 import WeChatLink from '../components/WeChatLink.astro';
 import WeChatDialog from '../components/WeChatDialog.astro';
+import DepartureSchedule from '../components/DepartureSchedule.astro';
 import { BRAND_NAME, LINE_URL, SITE_URL, TELEGRAM_URL } from '../data/site';
 
 const cityBtnClass =
@@ -495,6 +496,8 @@ const faqJsonLd = {
 					更多地點 · 私密諮詢
 				</a>
 			</section>
+
+			<DepartureSchedule />
 
 			<section
 				id="faq-section"
