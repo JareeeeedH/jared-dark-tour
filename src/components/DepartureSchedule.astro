@@ -5,35 +5,30 @@ const slots = [
 	{
 		icon: '🔥',
 		label: '6 月端午連假特調',
-		title: '胡志明奢華會所應酬局',
 		badge: '僅剩 2 組名額',
 		badgeClass: 'text-red-400 bg-red-500/10',
 	},
 	{
 		icon: '☀️',
 		label: '7 月暑期放鬆場',
-		title: '峴港海島 slow-dive 慢天堂',
 		badge: '僅剩 3 組名額',
 		badgeClass: 'text-red-400 bg-red-500/10',
 	},
 	{
 		icon: '📅',
 		label: '8 月旺季銜接場',
-		title: '胡志明・峴港客製深夜行程',
 		badge: '開放預約卡位',
 		badgeClass: 'text-amber-400 bg-amber-500/10',
 	},
 	{
 		icon: '🍂',
 		label: '9 月秋季銜接場',
-		title: '胡志明・峴港客製深夜行程',
 		badge: '開放預約卡位',
 		badgeClass: 'text-amber-400 bg-amber-500/10',
 	},
 	{
 		icon: '🌙',
 		label: '10 月深秋銜接場',
-		title: '胡志明・峴港客製深夜行程',
 		badge: '開放預約卡位',
 		badgeClass: 'text-amber-400 bg-amber-500/10',
 	},
@@ -70,9 +65,8 @@ const slots = [
 			{
 				slots.map((slot) => (
 					<p class="flex flex-col gap-2 border-b border-border/80 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-						<span class="min-w-0 leading-snug">
-							{slot.icon} {slot.label}：
-							<span class="font-medium text-[#FFFFFF]">【{slot.title}】</span>
+						<span class="min-w-0 font-medium leading-snug text-[#FFFFFF]">
+							{slot.icon} {slot.label}
 						</span>
 						<span
 							class:list={[
