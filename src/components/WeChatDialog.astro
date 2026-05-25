@@ -10,17 +10,17 @@ import { WECHAT_ID, WECHAT_QR_SRC } from '../data/site';
 	data-wechat-qr={WECHAT_QR_SRC}
 >
 	<div
-		class="mx-auto mt-[10vh] w-full max-w-sm rounded-2xl border border-[#1A2333] bg-[#131722] p-6 text-center shadow-2xl"
+		class="mx-auto mt-[10vh] w-full max-w-sm rounded-2xl border border-border bg-card p-6 text-center shadow-2xl"
 	>
 		<h2 id="wechat-dialog-title" class="text-lg font-bold text-[#FFFFFF]">微信聯繫</h2>
-		<p class="mt-2 text-sm text-[#888888]">掃描 QR Code 或複製微信号加入好友</p>
+		<p class="mt-2 text-sm text-muted">掃描 QR Code 或複製微信号加入好友</p>
 		<img
 			id="wechat-dialog-qr"
 			src={WECHAT_QR_SRC}
 			alt="微信加好友 QR Code"
 			width="220"
 			height="220"
-			class="mx-auto mt-4 hidden rounded-lg border border-[#1A2333] bg-white p-2"
+			class="mx-auto mt-4 hidden rounded-lg border border-border bg-white p-2"
 		/>
 		<p id="wechat-dialog-id" class="mt-4 hidden text-base font-semibold text-[#07C160]"></p>
 		<div class="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
@@ -34,7 +34,7 @@ import { WECHAT_ID, WECHAT_QR_SRC } from '../data/site';
 			<button
 				type="button"
 				id="wechat-dialog-close"
-				class="rounded-lg border border-[#1A2333] px-4 py-2.5 text-sm text-[#CCCCCC] transition hover:border-[#888888] hover:text-[#FFFFFF]"
+				class="rounded-lg border border-border px-4 py-2.5 text-sm text-body transition hover:border-muted hover:text-[#FFFFFF]"
 			>
 				關閉
 			</button>

@@ -26,7 +26,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 		<div class="flex w-full flex-col gap-6">
 			{
 				dayItems.map((item) => (
-					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-[#222C3F] bg-[#131722]/90 md:flex-row md:items-stretch">
+					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-card/90 md:flex-row md:items-stretch">
 						<div class={mediaClass(item.imageFit)}>
 							{
 								item.image ? (
@@ -39,7 +39,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 										class={imageClass(item.imageFit)}
 									/>
 								) : (
-									<span class="flex h-full w-full items-center justify-center text-sm text-[#666666]">
+									<span class="flex h-full w-full items-center justify-center text-sm text-dim">
 										待置入圖片
 									</span>
 								)
@@ -47,7 +47,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 						</div>
 						<div class="flex flex-1 flex-col items-start justify-start p-6 text-left">
 							<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">{item.title}</h3>
-							<p class="text-sm leading-relaxed text-[#CCCCCC]">{item.desc}</p>
+							<p class="text-sm leading-relaxed text-body">{item.desc}</p>
 						</div>
 					</article>
 				))
@@ -59,7 +59,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 		<div class="flex w-full flex-col gap-6">
 			{
 				nightItems.map((item) => (
-					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-[#222C3F] bg-[#131722]/90 md:flex-row md:items-stretch">
+					<article class="play-card flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-card/90 md:flex-row md:items-stretch">
 						<div class={mediaClass(item.imageFit)}>
 							{
 								item.image ? (
@@ -72,7 +72,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 										class={imageClass(item.imageFit)}
 									/>
 								) : (
-									<span class="flex h-full w-full items-center justify-center text-sm text-[#666666]">
+									<span class="flex h-full w-full items-center justify-center text-sm text-dim">
 										待置入圖片
 									</span>
 								)
@@ -80,7 +80,7 @@ const imageClass = (fit: PlayItem['imageFit']) =>
 						</div>
 						<div class="flex flex-1 flex-col items-start justify-start p-6 text-left">
 							<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">{item.title}</h3>
-							<p class="text-sm leading-relaxed text-[#CCCCCC]">{item.desc}</p>
+							<p class="text-sm leading-relaxed text-body">{item.desc}</p>
 						</div>
 					</article>
 				))

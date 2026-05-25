@@ -1,4 +1,6 @@
 ---
+import { BRAND_NAME } from '../data/site';
+
 interface Props {
 	variant?: 'icon' | 'text';
 	class?: string;
@@ -8,14 +10,14 @@ const { variant = 'icon', class: className = '' } = Astro.props;
 
 const iconClass =
 	variant === 'icon'
-		? `text-[#CCCCCC] transition hover:text-[#07C160] ${className}`
+		? `text-body transition hover:text-[#07C160] ${className}`
 		: `transition hover:text-[#07C160] ${className}`;
 ---
 
 <button
 	type="button"
 	class={`wechat-link cursor-pointer border-0 bg-transparent p-0 ${iconClass}`}
-	aria-label="微信聯繫 傑瑞暗黑團"
+	aria-label={`微信聯繫 ${BRAND_NAME}`}
 >
 	{
 		variant === 'text' ? (

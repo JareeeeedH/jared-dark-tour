@@ -66,8 +66,8 @@ export const nightPlay: PlayItem[] = [
 		image: '/hcm_location/hcm_night_boat.png',
 	},
 	{
-		title: '殘酷選妃奧黛 (初階入門)',
-		desc: '百人現場海選、經理防夾單。下午四點起黃金時段，胡志明核心夜戰場。',
+		title: '奧黛風情尊選體驗（初階入門）',
+		desc: '現場安排專屬伴遊隨行、經理防夾單。下午四點起黃金時段，專屬行程時間可自由調配。',
 		image: '/hcm_location/hcm_night_cherry.png',
 	},
 	{
@@ -77,8 +77,8 @@ export const nightPlay: PlayItem[] = [
 		imageFit: 'tall',
 	},
 	{
-		title: '更多 中高級大人的玩法',
-		desc: 'KTV, 華K, 裸K, 帶出場, 定點全套半套，等各種中高階玩法，等你現場體驗。',
+		title: '更多 中高階夜生活場型',
+		desc: 'KTV、商務會所、專屬隨行與各種進階場型等，依時段與預算客製；細節聯繫說明。',
 		image: '/hcm_location/girls.png',
 	},
 ];

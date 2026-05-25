@@ -10,7 +10,7 @@ import WeChatDialog from '../components/WeChatDialog.astro';
 import { BRAND_NAME, LINE_URL, SITE_URL, TELEGRAM_URL } from '../data/site';
 
 const cityBtnClass =
-	'font-brand-cn flex min-h-[2rem] flex-1 items-center justify-center border border-[#E5E5E5]/20 border-l-2 border-l-[#800020] bg-[#0A0D14]/70 px-2 py-1.5 text-center text-xs font-medium tracking-wide text-[#E5E5E5] backdrop-blur-sm transition hover:border-[#E5E5E5]/35 hover:bg-[#131722]/90 hover:text-[#FFFFFF] md:min-h-[2.125rem] md:text-sm';
+	'font-brand-cn flex min-h-[2rem] flex-1 items-center justify-center border border-[#E5E5E5]/20 border-l-2 border-l-[#800020] bg-page/70 px-2 py-1.5 text-center text-xs font-medium tracking-wide text-[#E5E5E5] backdrop-blur-sm transition hover:border-[#E5E5E5]/35 hover:bg-card/90 hover:text-[#FFFFFF] md:min-h-[2.125rem] md:text-sm';
 
 const processSteps = [
 	{
@@ -29,9 +29,9 @@ const processSteps = [
 
 const siteUrl = SITE_URL;
 const brandName = BRAND_NAME;
-const pageTitle = `${BRAND_NAME} - 2026 越南胡志明、峴港大人夜遊避坑終極導航`;
+const pageTitle = `${BRAND_NAME}｜2026 胡志明・峴港夜生活｜深夜局行程客製`;
 const pageDescription =
-	'胡志明、峴港大人夜遊與 KTV、奧黛暗線導覽。24 小時隱形管家、透明物價防坑，高端可控、拒絕低俗，帶你安全涉水深夜戰場。';
+	'2026 越南胡志明・峴港大人系夜遊與 KTV 行程指南。胡志明・峴港夜遊行程避坑導航，台灣同鄉常駐對接，透明團費、管家控場。傑瑞夜旅 聯繫諮詢。';
 const ogImageUrl = `${siteUrl}/banner.png`;
 
 const blogPosts = [
@@ -93,22 +93,22 @@ const faqItems = [
 	{
 		question: '胡志明和峴港的夜生活有什麼差別？該怎麼選？',
 		answer:
-			'胡志明選擇多、場次新、消費偏高，適合想深度玩 KTV、夜店的人；峴港相對鄉和、價位親民，KTV 常可較早帶出場，也適合海島慢玩加一晚夜場。若只有三四天、想一次玩滿，多數人會先胡志明；想度假感強、預算控管，峴港 CP 值高。可先跟我們說人數與預算，再幫你配城市與天數。',
+			'胡志明選擇多、場次新、消費偏高，適合想深度玩 KTV、夜店的人；峴港相對溫和、價位親民，KTV 常可較早安排專屬伴遊隨行，也適合海島慢玩加一晚夜場。若只有三四天、想一次玩滿，多數人會先胡志明；想度假感強、預算控管，峴港 CP 值高。可先跟我們說人數與預算，再幫你配城市與天數。',
 	},
 	{
 		question: '第一次去越南 KTV，一晚大概要準備多少預算？',
 		answer:
-			'差異很大，看場型與人數。胡志明商務 KTV 常見是酒水加坐台分開計，四人分攤酒水約 250–300 萬越盾／人起，坐台另計；峴港整體低一階。短鐘、長鐘、出場費都不含在基本酒水裡，出場還可能另談。建議出發前先列「酒水＋坐台＋可能出場」三塊預算，由我們事先講清總價，比到場才問價安全得多。',
+			'差異很大，看場型與人數。胡志明商務 KTV 常見是酒水加坐台分開計，四人分攤酒水約 250–300 萬越盾／人起，坐台另計；峴港整體低一階。深夜專屬隨行費用（依時段計資）都不含在基本酒水裡，隨行安排還可能另談。建議出發前先列「酒水＋坐台＋深夜專屬隨行」三塊預算，由我們事先講清總價，比到場才問價安全得多。',
 	},
 	{
-		question: '峴港 KTV 可以幾點帶人出場？跟胡志明一樣嗎？',
+		question: '峴港 KTV 專屬隨行時間？跟胡志明一樣嗎？',
 		answer:
-			'不完全一樣。胡志明不少場子習慣深夜後才方便出場；峴港相對較早，但並非每位小姐都能出，多半牽涉場內規定與個人價位，出場費常需另談、也不含坐台小費。想「先坐再決定要不要帶出」，可先確認哪些小姐允許出場，我們會依場子規則事先篩選，減少坐完才說不能走的狀況。',
+			'不完全一樣。胡志明不少場子習慣深夜後才方便專屬隨行；峴港相對較早，但並非每位都能安排隨行，多半牽涉場內規定與個人價位，深夜專屬隨行費用（依時段計資）常需另談、也不含坐台小費。想「先坐再決定要不要安排專屬隨行」，可先確認哪些人員允許隨行，我們會依場子規則事先篩選，減少坐完才說不能走的狀況。',
 	},
 	{
 		question: '越南夜店或 KTV 常見的消費陷阱有哪些？',
 		answer:
-			'常見包括：帳單多開酒水或零食、坐台前答應出場坐後反悔、臨時加價高於店家牌價、要求額外小費或笑氣／電子煙等加購。背包區酒吧還可能菜單與結帳不符。對策是進場前確認總價與含項、不隨意簽不明單據、貴重物品放飯店，並避免喝陌生人遞來的開封飲料。跟團由管家控場，可擋掉大半亂加價。',
+			'常見包括：帳單多開酒水或零食、坐台前答應隨行坐後反悔、臨時加價高於店家牌價、要求額外小費。背包區酒吧還可能菜單與結帳不符。對策是進場前確認總價與含項、不隨意簽不明單據、貴重物品放飯店，並避免喝陌生人遞來的開封飲料，遠離非店內常規之違禁加購。跟團由管家控場，可擋掉大半亂加價。',
 	},
 	{
 		question: '晚上從酒吧、KTV 回飯店，交通怎麼安排比較安全？',
@@ -163,7 +163,7 @@ const faqJsonLd = {
 };
 ---
 
-<html lang="zh-Hant" class="scroll-smooth bg-[#0A0D14] antialiased">
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -171,7 +171,7 @@ const faqJsonLd = {
 		<meta name="description" content={pageDescription} />
 		<meta
 			name="keywords"
-			content="傑瑞暗黑團,越南暗黑團,胡志明夜生活,峴港夜遊,越南KTV"
+			content="傑瑞夜旅,越南夜遊,胡志明夜生活,峴港夜遊,越南KTV"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -198,13 +198,13 @@ const faqJsonLd = {
 		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 	</head>
 
-	<body class="home-page min-h-screen font-sans text-[#CCCCCC] antialiased">
+	<body class="home-page min-h-screen font-sans text-body antialiased">
 		<HomePageShell>
 			<Navbar homeHref="#top" />
 
 			<main id="top" class="flex w-full flex-col items-center px-4 text-center">
 			<section
-				class="relative my-6 flex h-64 w-full max-w-7xl items-end justify-start overflow-hidden rounded-2xl border border-[#222C3F] bg-[#0A0D14] shadow-2xl md:h-96"
+				class="relative my-6 flex h-64 w-full max-w-7xl items-end justify-start overflow-hidden rounded-2xl border border-border bg-page shadow-2xl md:h-96"
 				aria-label={BRAND_NAME}
 			>
 				<img
@@ -218,12 +218,12 @@ const faqJsonLd = {
 					aria-hidden="true"
 				/>
 				<div
-					class="absolute inset-0 bg-gradient-to-r from-[#0A0D14]/95 via-[#0A0D14]/55 to-transparent"
+					class="absolute inset-0 bg-gradient-to-r from-page/95 via-page/55 to-transparent"
 					aria-hidden="true"
 				>
 				</div>
 				<div
-					class="absolute inset-0 bg-gradient-to-t from-[#0A0D14]/40 via-transparent to-transparent"
+					class="absolute inset-0 bg-gradient-to-t from-page/40 via-transparent to-transparent"
 					aria-hidden="true"
 				>
 				</div>
@@ -240,13 +240,13 @@ const faqJsonLd = {
 						class="mt-2 text-sm font-medium tracking-wide text-[#E5E5E5]/90 md:text-base"
 						style="font-family: 'Noto Sans TC', sans-serif"
 					>
-						越南暗黑團｜胡志明・峴港
+						越南大人系夜生活｜胡志明・峴港
 					</p>
 					<p
 						class="mt-3 max-w-md text-sm font-light leading-relaxed text-[#E5E5E5]/85 md:mt-4 md:text-base"
 						style="font-family: 'Noto Sans TC', sans-serif"
 					>
-						胡志明與峴港的 KTV、奧黛與深夜暗線——物價講清、<span class="whitespace-nowrap">隱形管家控場</span>，講清底價，入夜才敢放開。
+						胡志明與峴港的 KTV、奧黛與深夜私人行程——物價講清、<span class="whitespace-nowrap">隱形管家控場</span>，講清底價，入夜才敢放開。
 					</p>
 					<div
 						class="mt-4 flex w-[9.25rem] gap-1.5 md:mt-5 md:w-[10.25rem]"
@@ -267,8 +267,8 @@ const faqJsonLd = {
 					href={LINE_URL}
 					target="_blank"
 					rel="noopener noreferrer"
-					aria-label="LINE 官方 越南KTV暗黑團"
-					class="text-[#CCCCCC] transition hover:text-[#06C755]"
+					aria-label={`LINE 官方 ${BRAND_NAME}`}
+					class="text-body transition hover:text-[#06C755]"
 				>
 					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 						<path
@@ -280,8 +280,8 @@ const faqJsonLd = {
 					href={TELEGRAM_URL}
 					target="_blank"
 					rel="noopener noreferrer"
-					aria-label="Telegram 傑瑞暗黑團"
-					class="text-[#CCCCCC] transition hover:text-[#229ED9]"
+					aria-label={`Telegram ${BRAND_NAME}`}
+					class="text-body transition hover:text-[#229ED9]"
 				>
 					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 						<path
@@ -297,11 +297,11 @@ const faqJsonLd = {
 					class="home-panel scroll-reveal col-span-1 rounded-xl p-6 text-left"
 				>
 					<h2
-						class="mb-3 border-b border-[#1A2333] pb-2 text-base font-bold text-[#FFFFFF]"
+						class="mb-3 border-b border-border pb-2 text-base font-bold text-[#FFFFFF]"
 					>
-						傑瑞 ｜ 靠譜的好夥伴
+						{BRAND_NAME} ｜ 靠譜的好夥伴
 					</h2>
-					<p class="text-sm leading-relaxed text-[#CCCCCC]">
+					<p class="text-sm leading-relaxed text-body">
 						胡志明與峴港。怎麼玩、玩多深，淺玩深玩都行，對上了再聊。白天、入夜一次排妥；價格講清，現場不追加。盡興玩，安心走。
 					</p>
 				</div>
@@ -309,9 +309,9 @@ const faqJsonLd = {
 					class="home-panel scroll-reveal col-span-2 overflow-hidden rounded-xl text-left"
 					aria-label="行程安排流程"
 				>
-					<div class="border-t border-[#1A2333]/80">
+					<div class="border-t border-border/80">
 						<div
-							class="scroll-stagger-md grid grid-cols-1 divide-y divide-[#1A2333] md:grid-cols-3 md:divide-x md:divide-y-0"
+							class="scroll-stagger-md grid grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0"
 						>
 							<div class="home-process-step scroll-reveal flex flex-col items-start px-6 py-8 text-left md:px-8">
 								<svg
@@ -332,7 +332,7 @@ const faqJsonLd = {
 								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
 									{processSteps[0].title}
 								</h3>
-								<p class="text-sm leading-relaxed text-[#888888]">
+								<p class="text-sm leading-relaxed text-muted">
 									{processSteps[0].desc}
 								</p>
 							</div>
@@ -354,7 +354,7 @@ const faqJsonLd = {
 								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
 									{processSteps[1].title}
 								</h3>
-								<p class="text-sm leading-relaxed text-[#888888]">
+								<p class="text-sm leading-relaxed text-muted">
 									{processSteps[1].desc}
 								</p>
 							</div>
@@ -376,7 +376,7 @@ const faqJsonLd = {
 								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
 									{processSteps[2].title}
 								</h3>
-								<p class="text-sm leading-relaxed text-[#888888]">
+								<p class="text-sm leading-relaxed text-muted">
 									{processSteps[2].desc}
 								</p>
 							</div>
@@ -410,7 +410,7 @@ const faqJsonLd = {
 						>敢衝、敢玩、渴望自由的靈魂，死到哪去了？
 					</p>
 					<div
-						class="space-y-4 border-t border-[#1A2333]/70 pt-6 text-[#D1D5DB] md:pt-7"
+						class="space-y-4 border-t border-border/70 pt-6 text-[#D1D5DB] md:pt-7"
 					>
 						<p>若你也想暫時抽離。</p>
 						<p>
@@ -443,7 +443,7 @@ const faqJsonLd = {
 				>
 					<a
 						href="/ho-chi-minh"
-						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-[#1A2333] bg-[#131722]/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
+						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
 					>
 						<div
 							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
@@ -465,7 +465,7 @@ const faqJsonLd = {
 					</a>
 					<a
 						href="/da-nang"
-						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-[#1A2333] bg-[#131722]/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
+						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
 					>
 						<div
 							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
@@ -514,11 +514,11 @@ const faqJsonLd = {
 					{
 						faqItems.map((item) => (
 							<details class="smooth-accordion home-panel scroll-reveal group h-fit w-full rounded-2xl text-left">
-								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 text-sm font-semibold leading-snug text-[#FFFFFF] transition-colors hover:bg-[#1A2333]/30 md:px-5 md:py-3.5 md:text-[15px] [&::-webkit-details-marker]:hidden">
+								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 text-sm font-semibold leading-snug text-[#FFFFFF] transition-colors hover:bg-surface/30 md:px-5 md:py-3.5 md:text-[15px] [&::-webkit-details-marker]:hidden">
 									<span class="flex items-start justify-between gap-3">
 										<span class="min-w-0">{item.question}</span>
 										<span
-											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-[#888888]"
+											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-muted"
 											aria-hidden="true"
 										>
 											+
@@ -527,7 +527,7 @@ const faqJsonLd = {
 								</summary>
 								<div class="smooth-accordion__panel">
 									<div
-										class="smooth-accordion__inner border-t border-[#1A2333] px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
+										class="smooth-accordion__inner border-t border-border px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
 									>
 										<p class="text-xs leading-relaxed text-[#A0AEC0] md:text-[13px]">
 											{item.answer}
@@ -548,7 +548,7 @@ const faqJsonLd = {
 					<h2
 						class="whitespace-nowrap text-xl font-bold leading-snug text-[#FFFFFF] md:text-2xl"
 					>
-						傑瑞誌 · 深夜讀物
+						夜旅誌 · 深夜讀物
 					</h2>
 					<div
 						class="mt-2 h-[2px] w-16 bg-gradient-to-r from-[#800020] via-[#800020]/35 to-transparent md:mt-2.5"
@@ -562,16 +562,16 @@ const faqJsonLd = {
 					{
 						blogPosts.map((post) => (
 							<details class="smooth-accordion home-panel scroll-reveal group h-fit w-full rounded-2xl text-left">
-								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 transition-colors hover:bg-[#1A2333]/30 md:px-5 md:py-3.5 [&::-webkit-details-marker]:hidden">
+								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 transition-colors hover:bg-surface/30 md:px-5 md:py-3.5 [&::-webkit-details-marker]:hidden">
 									<span class="flex items-start justify-between gap-3">
 										<span class="min-w-0 text-left">
-											<span class="text-[11px] text-[#666666] md:text-xs">{post.source}</span>
+											<span class="text-[11px] text-dim md:text-xs">{post.source}</span>
 											<span class="mt-0.5 block text-sm font-bold leading-snug text-[#FFFFFF] md:text-[15px]">
 												{post.title}
 											</span>
 										</span>
 										<span
-											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-[#888888] md:text-lg"
+											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-muted md:text-lg"
 											aria-hidden="true"
 										>
 											+
@@ -580,7 +580,7 @@ const faqJsonLd = {
 								</summary>
 								<div class="smooth-accordion__panel">
 									<div
-										class="smooth-accordion__inner border-t border-[#1A2333] px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
+										class="smooth-accordion__inner border-t border-border px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
 									>
 										<p class="text-xs leading-relaxed text-[#B3B3B3] md:text-[13px]">
 											{post.detail}
@@ -603,7 +603,7 @@ const faqJsonLd = {
 			</main>
 
 			<footer
-				class="scroll-reveal relative z-10 mt-20 flex w-full flex-col items-center space-y-4 border-t border-[#1A2333]/80 py-8 text-center text-xs text-[#555555]"
+				class="scroll-reveal relative z-10 mt-20 flex w-full flex-col items-center space-y-4 border-t border-border/80 py-8 text-center text-xs text-dim"
 			>
 			<div class="flex flex-wrap items-center justify-center gap-6">
 				<a
@@ -627,7 +627,7 @@ const faqJsonLd = {
 			<p class="max-w-xl px-4 leading-relaxed">
 				我們對接在地強大資源，並且我們嚴格遵守不放任何兄弟隱私照片與個人介紹的最高安全規範，全力保護所有客人的行蹤隱私與安全。
 			</p>
-			<p>© 2026 傑瑞暗黑團</p>
+			<p>© {new Date().getFullYear()} {BRAND_NAME}</p>
 			</footer>
 
 			<ScrollToTop />

@@ -1,5 +1,5 @@
 /** 全站統一品牌名稱 */
-export const BRAND_NAME_CN = '傑瑞暗黑團';
+export const BRAND_NAME_CN = '傑瑞夜旅';
 export const BRAND_NAME = BRAND_NAME_CN;
 
 /** 正式網域（Open Graph、canonical 等需絕對網址） */

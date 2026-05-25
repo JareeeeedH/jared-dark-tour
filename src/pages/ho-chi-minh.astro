@@ -14,12 +14,12 @@ import { BRAND_NAME } from '../data/site';
 import { hoChiMinhCityIntro } from '../data/cityFeatures';
 import { dayPlay, nightPlay } from '../data/hoChiMinhPlay';
 
-const pageTitle = '胡志明市 ｜ 頂級選妃與極致奢華戰場 ｜ 傑瑞暗黑團';
+const pageTitle = `胡志明市 ｜ 夜生活與 KTV 行程客製 ｜ ${BRAND_NAME}`;
 const pageDescription =
-	`${BRAND_NAME} 胡志明市專屬導覽：日光紳士行程、夜晚 KTV 選妃奧黛店、透明參團團費。24小時隱形管家、全程防坑控場。`;
+	`${BRAND_NAME} 胡志明市專屬導覽：日光紳士行程、夜晚 KTV 與奧黛風情體驗，透明參團團費。24小時隱形管家、全程防坑控場。`;
 ---
 
-<html lang="zh-Hant" class="scroll-smooth bg-[#0A0D14] antialiased">
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +27,7 @@ const pageDescription =
 		<meta name="description" content={pageDescription} />
 		<meta
 			name="keywords"
-			content="胡志明夜生活,胡志明KTV,奧黛店,傑瑞暗黑團,越南暗黑團"
+			content="胡志明夜生活,胡志明KTV,奧黛體驗,傑瑞夜旅,越南夜遊"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -46,7 +46,7 @@ const pageDescription =
 		/>
 	</head>
 
-	<body class="min-h-screen bg-[#0A0D14] font-sans text-[#CCCCCC] antialiased">
+	<body class="min-h-screen bg-page font-sans text-body antialiased">
 		<CityPageShell theme="ho-chi-minh">
 			<Navbar />
 
@@ -80,9 +80,9 @@ const pageDescription =
 			</main>
 
 			<footer
-				class="relative z-10 flex w-full flex-col items-center border-t border-[#1A2333]/80 bg-[#0A0D14]/50 py-6 text-center text-xs text-[#555555]"
+				class="relative z-10 flex w-full flex-col items-center border-t border-border/80 bg-page/50 py-6 text-center text-xs text-dim"
 			>
-				<p>© {new Date().getFullYear()} 傑瑞暗黑團 · 胡志明市專頁</p>
+				<p>© {new Date().getFullYear()} {BRAND_NAME} · 胡志明市專頁</p>
 			</footer>
 
 			<ScrollToTop />
@@ -100,9 +100,9 @@ const pageDescription =
 				const subpanelNight = document.getElementById('subpanel-night');
 
 				const activeMain = 'bg-[#800020] text-[#FFFFFF]';
-				const inactiveMain = 'bg-[#131722] text-[#CCCCCC]';
+				const inactiveMain = 'bg-card text-body';
 				const activeSub = 'border-[#800020] text-[#FFFFFF] font-bold';
-				const inactiveSub = 'border-transparent text-[#888888] font-medium';
+				const inactiveSub = 'border-transparent text-muted font-medium';
 
 				function setMainTab(tab) {
 					mainTabBtns.forEach((btn) => {

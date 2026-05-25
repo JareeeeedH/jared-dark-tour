@@ -14,12 +14,12 @@ import { BRAND_NAME } from '../data/site';
 import { daNangCityIntro } from '../data/cityFeatures';
 import { dayPlay, nightPlay } from '../data/daNangPlay';
 
-const pageTitle = '峴港市 ｜ 海島度假與暗夜慢天堂 ｜ 傑瑞暗黑團';
+const pageTitle = `峴港市 ｜ 海島度假與暗夜慢天堂 ｜ ${BRAND_NAME}`;
 const pageDescription =
-	`${BRAND_NAME} 峴港市專屬導覽：美溪沙灘、會安古鎮、海島奧黛店與慢節奏夜生活。高性價比紳士度假方案，全程匿名防坑、保姆車隱密接送。`;
+	`${BRAND_NAME} 峴港市專屬導覽：美溪沙灘、會安古鎮、海島奧黛風情體驗與慢節奏夜生活。高性價比紳士度假方案，全程匿名防坑、保姆車隱密接送。`;
 ---
 
-<html lang="zh-Hant" class="scroll-smooth bg-[#0A0D14] antialiased">
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +27,7 @@ const pageDescription =
 		<meta name="description" content={pageDescription} />
 		<meta
 			name="keywords"
-			content="峴港夜生活,峴港KTV,奧黛店,會安古鎮,美溪沙灘,傑瑞暗黑團,越南暗黑團"
+			content="峴港夜生活,峴港KTV,奧黛體驗,會安古鎮,美溪沙灘,傑瑞夜旅,越南夜遊"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -46,7 +46,7 @@ const pageDescription =
 		/>
 	</head>
 
-	<body class="min-h-screen bg-[#0A0D14] font-sans text-[#CCCCCC] antialiased">
+	<body class="min-h-screen bg-page font-sans text-body antialiased">
 		<CityPageShell theme="da-nang">
 			<Navbar />
 
@@ -80,9 +80,9 @@ const pageDescription =
 			</main>
 
 			<footer
-				class="relative z-10 flex w-full flex-col items-center border-t border-[#1A2333]/80 bg-[#0A0D14]/50 py-6 text-center text-xs text-[#555555]"
+				class="relative z-10 flex w-full flex-col items-center border-t border-border/80 bg-page/50 py-6 text-center text-xs text-dim"
 			>
-				<p>© {new Date().getFullYear()} 傑瑞暗黑團 · 峴港市專頁</p>
+				<p>© {new Date().getFullYear()} {BRAND_NAME} · 峴港市專頁</p>
 			</footer>
 
 			<ScrollToTop />
@@ -100,9 +100,9 @@ const pageDescription =
 				const subpanelNight = document.getElementById('subpanel-night');
 
 				const activeMain = 'bg-gradient-to-r from-[#06D6A0] to-[#0a8f72] text-[#FFFFFF]';
-				const inactiveMain = 'bg-[#131722]/90 text-[#CCCCCC]';
+				const inactiveMain = 'bg-card/90 text-body';
 				const activeSub = 'border-[#06D6A0] text-[#FFFFFF] font-bold';
-				const inactiveSub = 'border-transparent text-[#888888] font-medium';
+				const inactiveSub = 'border-transparent text-muted font-medium';
 
 				function setMainTab(tab) {
 					mainTabBtns.forEach((btn) => {

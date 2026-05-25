@@ -47,19 +47,19 @@ const imageBorder =
 					/>
 				) : (
 					<div class="relative z-10 px-6 text-center">
-						<p class="text-sm text-[#888888]">圖片區 · 待放入</p>
+						<p class="text-sm text-muted">圖片區 · 待放入</p>
 					</div>
 				)
 			}
 		</div>
 
 		<div
-			class="flex flex-col justify-center rounded-2xl bg-[#0A0D14]/40 px-2 py-4 backdrop-blur-sm md:px-4 md:py-5"
+			class="flex flex-col justify-center rounded-2xl bg-page/40 px-2 py-4 backdrop-blur-sm md:px-4 md:py-5"
 		>
 			<h1 class="text-left text-3xl font-bold leading-none text-[#FFFFFF] md:text-4xl">
 				{cityZh}
 			</h1>
-			<p class="mt-1 text-left font-brand-en text-xs tracking-[0.2em] text-[#888888] uppercase">
+			<p class="mt-1 text-left font-brand-en text-xs tracking-[0.2em] text-muted uppercase">
 				{cityEn}
 			</p>
 
@@ -70,7 +70,7 @@ const imageBorder =
 
 			{
 				cityIntro ? (
-					<p class="mt-4 text-left text-sm leading-relaxed text-[#CCCCCC] md:text-base">
+					<p class="mt-4 text-left text-sm leading-relaxed text-body md:text-base">
 						{cityIntro}
 					</p>
 				) : (
