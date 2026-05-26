@@ -9,8 +9,11 @@ import CityPageShell from '../components/CityPageShell.astro';
 import Navbar from '../components/Navbar.astro';
 import CityCta from '../components/CityCta.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
+import FixedContactDock from '../components/FixedContactDock.astro';
+import WeChatDialog from '../components/WeChatDialog.astro';
 import SeoMeta from '../components/SeoMeta.astro';
-import { BRAND_NAME } from '../data/site';
+import SiteFooter from '../components/SiteFooter.astro';
+import { BRAND_NAME, META_KEYWORDS } from '../data/site';
 import { daNangCityIntro } from '../data/cityFeatures';
 import { dayPlay, nightPlay } from '../data/daNangPlay';
 
@@ -25,10 +28,7 @@ const pageDescription =
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={pageDescription} />
-		<meta
-			name="keywords"
-			content="峴港夜生活,峴港KTV,奧黛體驗,會安古鎮,美溪沙灘,傑瑞夜旅,越南夜遊,峴港暗黑旅遊"
-		/>
+		<meta name="keywords" content={META_KEYWORDS} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<title>{pageTitle}</title>
@@ -79,17 +79,11 @@ const pageDescription =
 				<CityCta cityZh="峴港" />
 			</main>
 
-			<footer
-				class="relative z-10 flex w-full flex-col items-center border-t border-border/80 bg-page/50 py-6 text-center text-xs text-dim"
-			>
-				<p>
-					<a href="/privacy" class="underline transition hover:text-body">隱私權政策</a>
-					<span class="mx-2">·</span>
-					© {new Date().getFullYear()} {BRAND_NAME} · 峴港市專頁
-				</p>
-			</footer>
+			<SiteFooter suffix="峴港市專頁" />
 
+			<FixedContactDock cityZh="峴港" />
 			<ScrollToTop />
+			<WeChatDialog />
 		</CityPageShell>
 
 		<script is:inline>

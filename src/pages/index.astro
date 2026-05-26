@@ -5,10 +5,11 @@ import AccordionInit from '../components/AccordionInit.astro';
 import ScrollRevealInit from '../components/ScrollRevealInit.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import HomePageShell from '../components/HomePageShell.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import WeChatLink from '../components/WeChatLink.astro';
 import WeChatDialog from '../components/WeChatDialog.astro';
 import DepartureSchedule from '../components/DepartureSchedule.astro';
-import { BRAND_NAME, LINE_URL, SITE_URL, TELEGRAM_URL } from '../data/site';
+import { BRAND_NAME, LINE_URL, META_KEYWORDS, SITE_URL, TELEGRAM_URL } from '../data/site';
 
 const cityBtnClass =
 	'font-brand-cn flex min-h-[2rem] flex-1 items-center justify-center border border-[#E5E5E5]/20 border-l-2 border-l-[#800020] bg-page/70 px-2 py-1.5 text-center text-xs font-medium tracking-wide text-[#E5E5E5] backdrop-blur-sm transition hover:border-[#E5E5E5]/35 hover:bg-card/90 hover:text-[#FFFFFF] md:min-h-[2.125rem] md:text-sm';
@@ -89,27 +90,27 @@ const faqItems = [
 	{
 		question: '會不會有現場追加報價的狀況？',
 		answer:
-			'絕無可能。所有定價與黑幕物價表完全透明，現場經理控場，簽約多少就是多少。',
+			'絕無可能。所有定價與隱藏加收項目完全透明，現場經理控場，簽約多少就是多少。',
 	},
 	{
 		question: '胡志明和峴港的夜生活有什麼差別？該怎麼選？',
 		answer:
-			'胡志明選擇多、場次新、消費偏高，適合想深度玩 KTV、夜店的人；峴港相對溫和、價位親民，KTV 常可較早安排專屬伴遊隨行，也適合海島慢玩加一晚夜場。若只有三四天、想一次玩滿，多數人會先胡志明；想度假感強、預算控管，峴港 CP 值高。可先跟我們說人數與預算，再幫你配城市與天數。',
+			'胡志明選擇多、場次新、消費偏高，適合想深度玩 KTV、夜店的人；峴港相對溫和、價位親民，KTV 常可較早安排專屬陪同服務，也適合海島慢玩加一晚夜場。若只有三四天、想一次玩滿，多數人會先胡志明；想度假感強、預算控管，峴港 CP 值高。可先跟我們說人數與預算，再幫你配城市與天數。',
 	},
 	{
 		question: '第一次去越南 KTV，一晚大概要準備多少預算？',
 		answer:
-			'差異很大，看場型與人數。胡志明商務 KTV 常見是酒水加坐台分開計，四人分攤酒水約 250–300 萬越盾／人起，坐台另計；峴港整體低一階。深夜專屬隨行費用（依時段計資）都不含在基本酒水裡，隨行安排還可能另談。建議出發前先列「酒水＋坐台＋深夜專屬隨行」三塊預算，由我們事先講清總價，比到場才問價安全得多。',
+			'差異很大，看場型與人數。胡志明商務 KTV 常見是酒水與公關服務分開計，四人分攤酒水約 250–300 萬越盾／人起，公關服務另計；峴港整體低一階。深夜專屬陪同服務費用（依時段計資）都不含在基本酒水裡，陪同安排還可能另談。建議出發前先列「酒水＋公關服務＋深夜專屬陪同服務」三塊預算，由我們事先講清總價，比到場才問價安全得多。',
 	},
 	{
-		question: '峴港 KTV 專屬隨行時間？跟胡志明一樣嗎？',
+		question: '峴港 KTV 專屬陪同服務時間？跟胡志明一樣嗎？',
 		answer:
-			'不完全一樣。胡志明不少場子習慣深夜後才方便專屬隨行；峴港相對較早，但並非每位都能安排隨行，多半牽涉場內規定與個人價位，深夜專屬隨行費用（依時段計資）常需另談、也不含坐台小費。想「先坐再決定要不要安排專屬隨行」，可先確認哪些人員允許隨行，我們會依場子規則事先篩選，減少坐完才說不能走的狀況。',
+			'不完全一樣。胡志明不少場子習慣深夜後才方便專屬陪同服務；峴港相對較早，但並非每位都能安排陪同，多半牽涉場內規定與個人價位，深夜專屬陪同服務費用（依時段計資）常需另談、也不含公關服務小費。想「先體驗公關服務再決定是否加購專屬陪同服務」，可先確認哪些人員允許陪同，我們會依場子規則事先篩選，減少入場後才說無法安排的狀況。',
 	},
 	{
 		question: '越南夜店或 KTV 常見的消費陷阱有哪些？',
 		answer:
-			'常見包括：帳單多開酒水或零食、坐台前答應隨行坐後反悔、臨時加價高於店家牌價、要求額外小費。背包區酒吧還可能菜單與結帳不符。對策是進場前確認總價與含項、不隨意簽不明單據、貴重物品放飯店，並避免喝陌生人遞來的開封飲料，遠離非店內常規之違禁加購。跟團由管家控場，可擋掉大半亂加價。',
+			'常見包括：帳單多開酒水或零食、公關服務時答應可加購專屬陪同服務、入座後卻無法安排，臨時加價高於店家牌價、要求額外小費。背包區酒吧還可能菜單與結帳不符。對策是進場前確認總價與含項、不隨意簽不明單據、貴重物品放飯店，並避免喝陌生人遞來的開封飲料，避免非菜單內的額外加購項目。跟團由管家控場，可擋掉大半亂加價。',
 	},
 	{
 		question: '晚上從酒吧、KTV 回飯店，交通怎麼安排比較安全？',
@@ -129,7 +130,7 @@ const faqItems = [
 	{
 		question: '付款用越南盾還是美金？可以刷卡嗎？',
 		answer:
-			'場內幾乎都以越南盾現金為主，美金有時可收但匯率常不划算；高端場少數可刷卡，小費與坐台仍建議備現金。可先換好足夠越盾，或由我們事先說明預估總額，避免現場臨時湊錢。大型連鎖夜店刷卡較多，街邊酒吧仍以現金為主。',
+			'場內幾乎都以越南盾現金為主，美金有時可收但匯率常不划算；高端場少數可刷卡，小費與公關服務仍建議備現金。可先換好足夠越盾，或由我們事先說明預估總額，避免現場臨時湊錢。大型連鎖夜店刷卡較多，街邊酒吧仍以現金為主。',
 	},
 ];
 
@@ -170,10 +171,7 @@ const faqJsonLd = {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={pageDescription} />
-		<meta
-			name="keywords"
-			content="越南暗黑團,胡志明暗黑旅遊,峴港夜生活,越南KTV,奧黛店,傑瑞夜旅,越南夜遊"
-		/>
+		<meta name="keywords" content={META_KEYWORDS} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<title>{pageTitle}</title>
@@ -450,7 +448,7 @@ const faqJsonLd = {
 							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
 						>
 							<img
-								src="/hcmGirl.png"
+								src="/home-card-hcm.png"
 								alt="胡志明市 ｜ Saigon"
 								width="800"
 								height="480"
@@ -472,7 +470,7 @@ const faqJsonLd = {
 							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
 						>
 							<img
-								src="/haGirl.png"
+								src="/home-card-da-nang.png"
 								alt="峴港市 ｜ Da Nang"
 								width="800"
 								height="480"
@@ -605,47 +603,7 @@ const faqJsonLd = {
 			</section>
 			</main>
 
-			<footer
-				class="scroll-reveal relative z-10 mt-20 flex w-full flex-col items-center space-y-4 border-t border-border/80 py-8 text-center text-xs text-dim"
-			>
-			<div class="flex flex-wrap items-center justify-center gap-6">
-				<a
-					href={LINE_URL}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label={`LINE 官方 ${BRAND_NAME}`}
-					class="text-body transition hover:text-[#06C755]"
-				>
-					<svg class="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-						<path
-							d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.406h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.405h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
-						></path>
-					</svg>
-				</a>
-				<a
-					href={TELEGRAM_URL}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label={`Telegram ${BRAND_NAME}`}
-					class="text-body transition hover:text-[#229ED9]"
-				>
-					<svg class="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-						<path
-							d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
-						></path>
-					</svg>
-				</a>
-				<WeChatLink />
-			</div>
-			<p class="max-w-xl px-4 leading-relaxed">
-				我們對接在地強大資源，並且我們嚴格遵守不放任何兄弟隱私照片與個人介紹的最高安全規範，全力保護所有客人的行蹤隱私與安全。
-			</p>
-			<p>
-				<a href="/privacy" class="underline transition hover:text-body">隱私權政策</a>
-				<span class="mx-2">·</span>
-				© {new Date().getFullYear()} {BRAND_NAME}
-			</p>
-			</footer>
+			<SiteFooter variant="home" />
 
 			<ScrollToTop />
 			<WeChatDialog />

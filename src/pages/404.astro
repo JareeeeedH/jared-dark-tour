@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import HomePageShell from '../components/HomePageShell.astro';
 import { BRAND_NAME, LINE_URL } from '../data/site';
@@ -63,15 +64,7 @@ const primaryClass =
 				</a>
 			</main>
 
-			<footer
-				class="relative z-10 flex w-full flex-col items-center border-t border-border/80 bg-page/50 py-6 text-center text-xs text-dim"
-			>
-				<p>
-					<a href="/privacy" class="underline transition hover:text-body">隱私權政策</a>
-					<span class="mx-2">·</span>
-					© {new Date().getFullYear()} {BRAND_NAME}
-				</p>
-			</footer>
+			<SiteFooter />
 
 			<ScrollToTop />
 		</HomePageShell>

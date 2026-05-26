@@ -67,7 +67,7 @@ export const nightPlay: PlayItem[] = [
 	},
 	{
 		title: '奧黛風情尊選體驗（初階入門）',
-		desc: '現場安排專屬伴遊隨行、經理防夾單。下午四點起黃金時段，專屬行程時間可自由調配。',
+		desc: '現場安排專屬陪同服務、經理防夾單。下午四點起黃金時段，專屬行程時間可自由調配。',
 		image: '/hcm_location/hcm_night_cherry.png',
 	},
 	{
@@ -78,7 +78,7 @@ export const nightPlay: PlayItem[] = [
 	},
 	{
 		title: '更多 中高階夜生活場型',
-		desc: 'KTV、商務會所、專屬隨行與各種進階場型等，依時段與預算客製；細節聯繫說明。',
-		image: '/hcm_location/girls.png',
+		desc: 'KTV、商務會所、專屬陪同服務與各種進階場型等，依時段與預算客製；細節聯繫說明。',
+		image: '/hcm_location/hcm_night_premium.png',
 	},
 ];

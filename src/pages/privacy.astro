@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import HomePageShell from '../components/HomePageShell.astro';
 import SeoMeta from '../components/SeoMeta.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import { BRAND_NAME, LINE_URL, SITE_URL } from '../data/site';
 
 const pageTitle = `隱私權政策｜${BRAND_NAME}`;
@@ -140,15 +141,7 @@ const lastUpdated = '2026年5月';
 				</div>
 			</main>
 
-			<footer
-				class="relative z-10 flex w-full flex-col items-center border-t border-border/80 bg-page/50 py-6 text-center text-xs text-dim"
-			>
-				<p>
-					<a href="/privacy" class="text-muted underline hover:text-body">隱私權政策</a>
-					<span class="mx-2">·</span>
-					© {new Date().getFullYear()} {BRAND_NAME}
-				</p>
-			</footer>
+			<SiteFooter />
 
 			<ScrollToTop />
 		</HomePageShell>

@@ -14,8 +14,8 @@ const HERO_FILES = new Set([
 	'banner.png',
 	'hcmCity.png',
 	'DaCity.png',
-	'haGirl.png',
-	'hcmGirl.png',
+	'home-card-da-nang.png',
+	'home-card-hcm.png',
 ]);
 
 const MAX_WIDTH = {

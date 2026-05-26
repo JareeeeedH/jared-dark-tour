@@ -36,7 +36,7 @@ export const nightPlay: PlayItem[] = [
 	},
 	{
 		title: '峴港高端 KTV',
-		desc: '多間 KTV 可選，安排專屬伴遊隨行與帳單由我們把關。比胡志明節奏慢，適合兄弟團慢慢玩。',
-		image: '/da_location/girls.png',
+		desc: '多間 KTV 可選，安排專屬陪同服務與帳單由我們把關。比胡志明節奏慢，適合兄弟團慢慢玩。',
+		image: '/da_location/da_night_ktv.png',
 	},
 ];

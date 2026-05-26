@@ -64,7 +64,7 @@ export const includedItems: IncludedItem[] = [
 	},
 	{
 		label: '精力補給',
-		desc: '行程內附補給方案，關鍵時刻不軟腳。',
+		desc: '行程內附補給方案，關鍵時刻活力充沛。',
 	},
 	{
 		label: '全天客服 + 當地辦事處',
