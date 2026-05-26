@@ -5,6 +5,9 @@ export const BRAND_NAME = BRAND_NAME_CN;
 /** 正式網域（Open Graph、canonical 等需絕對網址） */
 export const SITE_URL = 'https://www.jr-vntravel.com';
 
+/** Google Ads 轉換追蹤（gtag.js） */
+export const GOOGLE_ADS_ID = 'AW-18190309265';
+
 /** 全站 meta keywords */
 export const META_KEYWORDS =
 	'越南洗頭,越南客製行程,越南自由行,胡志明旅遊,峴港旅遊';

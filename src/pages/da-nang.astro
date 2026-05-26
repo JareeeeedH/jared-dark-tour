@@ -11,6 +11,7 @@ import CityCta from '../components/CityCta.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import FixedContactDock from '../components/FixedContactDock.astro';
 import WeChatDialog from '../components/WeChatDialog.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
 import SeoMeta from '../components/SeoMeta.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { BRAND_NAME, META_KEYWORDS } from '../data/site';
@@ -24,6 +25,7 @@ const pageDescription =
 
 <html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
+		<GoogleAdsTag />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />

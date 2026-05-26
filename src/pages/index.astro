@@ -9,6 +9,8 @@ import SiteFooter from '../components/SiteFooter.astro';
 import WeChatLink from '../components/WeChatLink.astro';
 import WeChatDialog from '../components/WeChatDialog.astro';
 import DepartureSchedule from '../components/DepartureSchedule.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
+import GoogleTag from '../components/GoogleTag.astro';
 import { BRAND_NAME, LINE_URL, META_KEYWORDS, SITE_URL, TELEGRAM_URL } from '../data/site';
 
 const cityBtnClass =
@@ -167,6 +169,7 @@ const faqJsonLd = {
 
 <html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
+		<GoogleAdsTag />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />

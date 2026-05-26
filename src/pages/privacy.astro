@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import HomePageShell from '../components/HomePageShell.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
 import SeoMeta from '../components/SeoMeta.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { BRAND_NAME, LINE_URL, SITE_URL } from '../data/site';
@@ -16,6 +17,7 @@ const lastUpdated = '2026年5月';
 
 <html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
 	<head>
+		<GoogleAdsTag />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
@@ -95,6 +97,9 @@ const lastUpdated = '2026年5月';
 						<ul class="list-disc space-y-2 pl-5">
 							<li>網站託管（Vercel）</li>
 							<li>字體服務（Google Fonts）</li>
+							<li>
+								廣告與成效分析（Google Ads／gtag.js，可能蒐集 Cookie、裝置與造訪行為以衡量廣告成效）
+							</li>
 							<li>即時通訊（LINE、Telegram、微信）</li>
 							<li>外部新聞或參考連結（深夜讀物區）</li>
 						</ul>
