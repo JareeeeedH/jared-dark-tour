@@ -1,0 +1,29 @@
+---
+import { BRAND_NAME, SITE_URL } from '../data/site';
+
+interface Props {
+	title: string;
+	description: string;
+	/** e.g. `/ho-chi-minh` */
+	canonicalPath: string;
+	/** e.g. `/hcmCity.png` */
+	ogImagePath: string;
+}
+
+const { title, description, canonicalPath, ogImagePath } = Astro.props;
+const pageUrl = `${SITE_URL}${canonicalPath}`;
+const ogImageUrl = `${SITE_URL}${ogImagePath}`;
+---
+
+<link rel="canonical" href={pageUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={BRAND_NAME} />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />

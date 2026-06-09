@@ -1,0 +1,63 @@
+<script is:inline>
+	(() => {
+		const accordions = document.querySelectorAll('.smooth-accordion');
+		if (!accordions.length) return;
+
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const duration = 340;
+
+		accordions.forEach((details) => {
+			const summary = details.querySelector('summary');
+			const panel = details.querySelector('.smooth-accordion__panel');
+			if (!summary || !panel) return;
+
+			let closeTimer = null;
+
+			const clearCloseTimer = () => {
+				if (closeTimer === null) return;
+				window.clearTimeout(closeTimer);
+				closeTimer = null;
+			};
+
+			const finishClose = () => {
+				clearCloseTimer();
+				details.classList.remove('is-closing', 'is-animating');
+				details.open = false;
+			};
+
+			summary.addEventListener('click', (e) => {
+				if (reducedMotion) return;
+
+				if (details.open) {
+					if (details.classList.contains('is-closing')) {
+						e.preventDefault();
+						return;
+					}
+
+					e.preventDefault();
+					details.classList.add('is-closing', 'is-animating');
+
+					const onEnd = (ev) => {
+						if (ev.target !== panel || ev.propertyName !== 'grid-template-rows') return;
+						panel.removeEventListener('transitionend', onEnd);
+						finishClose();
+					};
+
+					panel.addEventListener('transitionend', onEnd);
+					closeTimer = window.setTimeout(finishClose, duration + 60);
+					return;
+				}
+
+				e.preventDefault();
+				clearCloseTimer();
+				details.classList.remove('is-closing');
+				details.classList.add('is-animating');
+				details.open = true;
+
+				window.setTimeout(() => {
+					details.classList.remove('is-animating');
+				}, duration + 60);
+			});
+		});
+	})();
+</script>

@@ -1,0 +1,151 @@
+---
+import '../styles/global.css';
+import CityHeroFeatures from '../components/CityHeroFeatures.astro';
+import PlayIntroPanel from '../components/PlayIntroPanel.astro';
+import TourSubNav from '../components/TourSubNav.astro';
+import TourMainTabs from '../components/TourMainTabs.astro';
+import HoChiMinhPricing from '../components/HoChiMinhPricing.astro';
+import CityPageShell from '../components/CityPageShell.astro';
+import Navbar from '../components/Navbar.astro';
+import CityCta from '../components/CityCta.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import FixedContactDock from '../components/FixedContactDock.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
+import SeoMeta from '../components/SeoMeta.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { BRAND_NAME, META_KEYWORDS } from '../data/site';
+import { hoChiMinhCityIntro } from '../data/cityFeatures';
+import { dayPlay, nightPlay } from '../data/hoChiMinhPlay';
+
+const pageTitle = `胡志明市｜夜生活與 KTV 行程客製｜${BRAND_NAME}`;
+const pageDescription =
+	`${BRAND_NAME} 胡志明市專屬導覽：日光紳士行程、夜晚客製會所體驗，透明參團團費。24小時隱形管家、全程防坑控場。`;
+---
+
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
+	<head>
+		<GoogleAdsTag />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<meta name="keywords" content={META_KEYWORDS} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{pageTitle}</title>
+		<SeoMeta
+			title={pageTitle}
+			description={pageDescription}
+			canonicalPath="/ho-chi-minh"
+			ogImagePath="/hcmCity.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="min-h-screen bg-page font-sans text-body antialiased">
+		<CityPageShell theme="ho-chi-minh">
+			<Navbar />
+
+			<main id="top" class="flex w-full flex-col items-center px-4 pb-16 text-center">
+				<a
+					href="/"
+					class="city-back-link city-enter mb-4 mt-6 text-sm transition"
+				>
+					← 返回首頁
+				</a>
+
+				<CityHeroFeatures
+					theme="ho-chi-minh"
+					cityZh="胡志明"
+					cityEn="Ho Chi Minh City"
+					cityIntro={hoChiMinhCityIntro}
+					imageSrc="/hcmCity.png"
+					imageAlt="胡志明市夜景"
+				/>
+
+				<section
+					class="city-content-panel city-enter city-enter-d2 flex w-full max-w-5xl flex-col items-stretch p-4 md:p-6"
+				>
+					<TourMainTabs />
+					<TourSubNav />
+					<PlayIntroPanel dayItems={dayPlay} nightItems={nightPlay} />
+					<HoChiMinhPricing />
+				</section>
+
+				<CityCta cityZh="胡志明" />
+			</main>
+
+			<SiteFooter suffix="胡志明市專頁" />
+
+			<FixedContactDock cityZh="胡志明" />
+			<ScrollToTop />
+		</CityPageShell>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const mainTabBtns = document.querySelectorAll('.main-tab-btn');
+				const panelIntro = document.getElementById('panel-intro');
+				const panelPricing = document.getElementById('panel-pricing');
+				const subNavIntro = document.getElementById('sub-nav-intro');
+				const subNavPricing = document.getElementById('sub-nav-pricing');
+				const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+				const subpanelDay = document.getElementById('subpanel-day');
+				const subpanelNight = document.getElementById('subpanel-night');
+
+				const activeMain = 'bg-[#800020] text-[#FFFFFF]';
+				const inactiveMain = 'bg-card text-body';
+				const activeSub = 'border-[#800020] text-[#FFFFFF] font-bold';
+				const inactiveSub = 'border-transparent text-muted font-medium';
+
+				function setMainTab(tab) {
+					mainTabBtns.forEach((btn) => {
+						const isActive = btn.getAttribute('data-main-tab') === tab;
+						btn.setAttribute('aria-selected', String(isActive));
+						btn.className =
+							'main-tab-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold transition md:px-5 md:py-2.5 md:text-sm ' +
+							(isActive ? activeMain : inactiveMain);
+					});
+					if (panelIntro) panelIntro.hidden = tab !== 'intro';
+					if (panelPricing) panelPricing.hidden = tab !== 'pricing';
+					if (subNavIntro) subNavIntro.hidden = tab !== 'intro';
+					if (subNavPricing) subNavPricing.hidden = tab !== 'pricing';
+				}
+
+				function setSubTab(tab) {
+					subTabBtns.forEach((btn) => {
+						const isActive = btn.getAttribute('data-sub-tab') === tab;
+						btn.setAttribute('aria-selected', String(isActive));
+						btn.className =
+							'sub-tab-btn border-b-2 px-2 pb-3 text-sm transition md:text-base ' +
+							(isActive ? activeSub : inactiveSub);
+					});
+					if (subpanelDay) subpanelDay.hidden = tab !== 'day';
+					if (subpanelNight) subpanelNight.hidden = tab !== 'night';
+				}
+
+				mainTabBtns.forEach((btn) => {
+					btn.addEventListener('click', () => {
+						const tab = btn.getAttribute('data-main-tab') || 'intro';
+						setMainTab(tab);
+						if (tab === 'intro') setSubTab('day');
+					});
+				});
+
+				subTabBtns.forEach((btn) => {
+					btn.addEventListener('click', () => {
+						setMainTab('intro');
+						setSubTab(btn.getAttribute('data-sub-tab') || 'day');
+					});
+				});
+
+				setMainTab('intro');
+				setSubTab('day');
+			});
+		</script>
+	</body>
+</html>

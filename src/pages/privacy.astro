@@ -1,0 +1,154 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import HomePageShell from '../components/HomePageShell.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
+import SeoMeta from '../components/SeoMeta.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { BRAND_NAME, LINE_URL, SITE_URL } from '../data/site';
+
+const pageTitle = `隱私權政策｜${BRAND_NAME}`;
+const pageDescription =
+	`${BRAND_NAME} 網站隱私權政策：說明我們如何處理您透過官網與 LINE 等管道提供的資訊，以及您的相關權利。`;
+
+const lastUpdated = '2026年5月';
+---
+
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
+	<head>
+		<GoogleAdsTag />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<meta name="robots" content="index, follow" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{pageTitle}</title>
+		<SeoMeta
+			title={pageTitle}
+			description={pageDescription}
+			canonicalPath="/privacy"
+			ogImagePath="/banner.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body class="min-h-screen bg-page font-sans text-body antialiased">
+		<HomePageShell>
+			<Navbar />
+
+			<main class="mx-auto w-full max-w-3xl px-4 py-10 pb-16 md:py-14">
+				<a href="/" class="text-sm text-muted transition hover:text-[#FFFFFF]">← 返回首頁</a>
+
+				<h1 class="mt-6 text-2xl font-bold text-[#FFFFFF] md:text-3xl">隱私權政策</h1>
+				<p class="mt-2 text-sm text-dim">最後更新：{lastUpdated}</p>
+
+				<div
+					class="home-panel mt-8 space-y-8 rounded-2xl p-6 text-left text-sm leading-relaxed text-body md:p-8 md:text-[15px] md:leading-7"
+				>
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">1. 適用範圍</h2>
+						<p>
+							本政策適用於 {BRAND_NAME}（以下稱「我們」）所營運之網站
+							<a href={SITE_URL} class="text-[#E5E5E5] underline hover:text-[#FFFFFF]"
+								>{SITE_URL.replace('https://', '')}</a
+							>（以下稱「本網站」），以及您透過本網站連結至 LINE、Telegram、微信等管道與我們聯繫時，我們所取得的資訊。
+						</p>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">2. 我們蒐集的資訊</h2>
+						<ul class="list-disc space-y-2 pl-5">
+							<li>
+								<strong class="text-[#FFFFFF]">您主動提供的資訊：</strong
+								>例如透過 LINE／Telegram／微信諮詢時的暱稱、對話內容、行程需求、人數與預算等。
+							</li>
+							<li>
+								<strong class="text-[#FFFFFF]">技術紀錄：</strong>主機與資安服務（如
+								Vercel）可能記錄 IP、瀏覽器類型、造訪時間、參照網址等標準日誌，用於維運與資安。
+							</li>
+							<li>
+								<strong class="text-[#FFFFFF]">我們不主動要求：</strong
+								>身分證字號、護照影本、信用卡完整卡號等敏感資料；若行程需要，我們會另行說明並征得同意。
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">3. 使用目的</h2>
+						<ul class="list-disc space-y-2 pl-5">
+							<li>回覆諮詢、提供行程與報價說明</li>
+							<li>安排與履行您委託的旅遊／夜遊相關服務</li>
+							<li>維護網站安全、排除故障、改善內容</li>
+							<li>遵守法律或主管機關依法要求</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">4. 第三方服務</h2>
+						<p class="mb-2">本網站可能使用或連結至第三方，例如：</p>
+						<ul class="list-disc space-y-2 pl-5">
+							<li>網站託管（Vercel）</li>
+							<li>字體服務（Google Fonts）</li>
+							<li>
+								廣告與成效分析（Google Ads／gtag.js，可能蒐集 Cookie、裝置與造訪行為以衡量廣告成效）
+							</li>
+							<li>即時通訊（LINE、Telegram、微信）</li>
+							<li>外部新聞或參考連結（深夜讀物區）</li>
+						</ul>
+						<p class="mt-2">
+							上述服務有其各自之隱私政策；您離開本網站或於該平台與我們對話時，亦受其規範。
+						</p>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">5. 保存與安全</h2>
+						<p>
+							我們僅在達成上述目的所需之合理期間內保存資料，並採取合理措施保護資訊安全（含不公開展示客戶隱私照片與個資）。惟網際網路傳輸無法保證絕對安全，請勿在公開頻道傳送過度敏感資訊。
+						</p>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">6. 您的權利</h2>
+						<p>
+							您可透過聯繫管道要求查詢、更正或刪除我們所持有之您的個人資料（法律另有規定者除外）。我們將於合理時間內回覆。
+						</p>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">7. 聯絡我們</h2>
+						<p>
+							若對本政策有疑問，請透過
+							<a
+								href={LINE_URL}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-[#06C755] underline hover:text-[#34d86a]"
+								>LINE 官方帳號</a
+							>
+							與我們聯繫。
+						</p>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-base font-bold text-[#FFFFFF]">8. 政策修訂</h2>
+						<p>
+							我們得不時更新本政策，並於本頁標示更新日期。重大變更時，我們將於網站適當位置提示。繼續使用本網站即視為您已閱讀並理解當時有效之政策內容。
+						</p>
+					</section>
+				</div>
+			</main>
+
+			<SiteFooter />
+
+			<ScrollToTop />
+		</HomePageShell>
+	</body>
+</html>

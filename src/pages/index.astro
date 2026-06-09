@@ -1,0 +1,578 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import AccordionInit from '../components/AccordionInit.astro';
+import ScrollRevealInit from '../components/ScrollRevealInit.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import HomePageShell from '../components/HomePageShell.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import DepartureSchedule from '../components/DepartureSchedule.astro';
+import GoogleAdsTag from '../components/GoogleAdsTag.astro';
+import GoogleTag from '../components/GoogleTag.astro';
+import { BRAND_NAME, LINE_URL, META_KEYWORDS, SITE_URL } from '../data/site';
+
+const cityBtnClass =
+	'font-brand-cn flex min-h-[2rem] flex-1 items-center justify-center border border-[#E5E5E5]/20 border-l-2 border-l-[#800020] bg-page/70 px-2 py-1.5 text-center text-xs font-medium tracking-wide text-[#E5E5E5] backdrop-blur-sm transition hover:border-[#E5E5E5]/35 hover:bg-card/90 hover:text-[#FFFFFF] md:min-h-[2.125rem] md:text-sm';
+
+const processSteps = [
+	{
+		title: '先看再選',
+		desc: '玩法、費用、地標一次看懂，再決定城市與天數',
+	},
+	{
+		title: '聯繫確認',
+		desc: '確認日期、人數、預算，價格透明、當場不追加',
+	},
+	{
+		title: '落地即接',
+		desc: '下機後專人接手，全程管家控場，你只負責玩',
+	},
+];
+
+const siteUrl = SITE_URL;
+const brandName = BRAND_NAME;
+const pageTitle = `${BRAND_NAME}｜2026 胡志明・峴港夜生活｜深夜局行程客製`;
+const pageDescription =
+	'2026 越南胡志明、峴港大人系 - 夜生活與 KTV 行程指南。胡志明・峴港私人行程避坑導航，台灣同鄉常駐對接，透明團費、管家控場。傑瑞夜旅 聯繫諮詢。';
+const ogImageUrl = `${siteUrl}/banner.png`;
+
+const blogPosts = [
+	{
+		title: '胡志明連假破170萬人次，觀光收入約8.7兆越盾',
+		detail:
+			'2025年清明、南方解放日與勞動節假期，胡志明推出近1000項旅遊產品，國際旅客約19萬、國內旅客約150萬。官方稱市中心與芹耶—頭頓、平陽形成城市、海島、生態多元動線，MICE 與夜遊需求同步升溫。',
+		href: 'https://cn.nhandan.vn/article-post153237.html',
+		source: '越南人民報',
+	},
+	{
+		title: 'Agoda：胡志明成越南短假旅遊榜首「不夜城」',
+		detail:
+			'越南國家旅遊局稱胡志明推動「探索西貢美食精髓」等活動至8月底；Agoda 將其列為越南短途旅遊首選，形容夜生活與街頭美食適合週末充電。對打算短停留的旅客，可留意官方套票與交通動線。',
+		href: 'https://2025.vietnam.travel/en/ho-chi-minh-city-promotes-2025-summer-tourism-stimulus-plan/',
+		source: 'Vietnam National Administration of Tourism',
+	},
+	{
+		title: '峴港入選韓媒2025夏日旅遊第4名，僅次曼谷',
+		detail:
+			'報導指峴港以美溪沙灘、巴拿山、會安古城與相對友善的消費結構吸引韓國年輕旅客與情侶；金橋、Sun World 等為熱門打卡點。2025年上半年韓國旅客來訪量年增約147%，顯示海島慢玩與夜生活並行。',
+		href: 'https://vietnamnews.vn/brandinfo/1722805/korean-media-names-da-nang-among-top-summer-2025-destinations.html',
+		source: 'Vietnam News',
+	},
+	{
+		title: '2026/5/15起：越南Karaoke、舞廳罰則大幅上調',
+		detail:
+			'新規針對 Karaoke、舞廳的營業時間、安防與無照經營提高罰則，嚴重違規可吊銷許可18至24個月。對旅客而言，意味著場次更偏向合法持照、資訊透明的店家，選前確認執照與口碑更重要。',
+		href: 'https://hethongphapluat.com/phap-luat/chinh-sach-phap-luat-tin-tuc/tu-1552026-cu-soc-muc-phat-karaoke-vu-truong-tang-manh-tuoc-giay-phep-den-24-thang.html',
+		source: '越南法律系統',
+	},
+	{
+		title: '胡志明啟動24小時噪音監測，KTV超標最高罰1.6億越盾',
+		detail:
+			'風傳媒報導胡志明改採分貝標準，不再只限晚間10點後；住宅區卡拉OK、擴音與低音炮是投訴主力。2025下半年官方平台逾9000件投訴，顯示住宅型與路邊型K歌持續受關注，商務型持照場所有相對穩定。',
+		href: 'https://app.storm.mg/article/11103758',
+		source: '風傳媒',
+	},
+	{
+		title: '胡志明一年半逾2.1萬件噪音投訴，KTV糾紛頻傳',
+		detail:
+			'中央社指鄰里擴音K歌與KTV噪音屢釀衝突，部分里坊缺乏標準測音設備，執法多以勸導為主。新聞亦提到執法人員到場後音量常立刻降低，取證不易。對訪客來說，選址在商業區、非住宅密集區的合法會所有助避開糾紛場景。',
+		href: 'https://www.cna.com.tw/news/aopl/202506270299.aspx',
+		source: '中央社',
+	},
+];
+
+const faqItems = [
+	{
+		question: '全程如何保證隱私匿名？',
+		answer:
+			'我們嚴格遵守匿名制，24小時隱形管家對接，不留任何行蹤與隱私紀錄。',
+	},
+	{
+		question: '會不會有現場追加報價的狀況？',
+		answer:
+			'絕無可能。所有定價與隱藏加收項目完全透明，現場經理控場，簽約多少就是多少。',
+	},
+	{
+		question: '胡志明和峴港的夜生活有什麼差別？該怎麼選？',
+		answer:
+			'胡志明選擇多、場次新、消費偏高，適合想深度玩 KTV、夜店的人；峴港相對溫和、價位親民，KTV 常可較早安排專屬陪同服務，也適合海島慢玩加一晚夜場。若只有三四天、想一次玩滿，多數人會先胡志明；想度假感強、預算控管，峴港 CP 值高。可先跟我們說人數與預算，再幫你配城市與天數。',
+	},
+	{
+		question: '第一次去越南 KTV，一晚大概要準備多少預算？',
+		answer:
+			'差異很大，看場型與人數。胡志明商務 KTV 常見是酒水與公關服務分開計，四人分攤酒水約 250–300 萬越盾／人起，公關服務另計；峴港整體低一階。深夜專屬陪同服務費用（依時段計資）都不含在基本酒水裡，陪同安排還可能另談。建議出發前先列「酒水＋公關服務＋深夜專屬陪同服務」三塊預算，由我們事先講清總價，比到場才問價安全得多。',
+	},
+	{
+		question: '峴港 KTV 專屬陪同服務時間？跟胡志明一樣嗎？',
+		answer:
+			'不完全一樣。胡志明不少場子習慣深夜後才方便專屬陪同服務；峴港相對較早，但並非每位都能安排陪同，多半牽涉場內規定與個人價位，深夜專屬陪同服務費用（依時段計資）常需另談、也不含公關服務小費。想「先體驗公關服務再決定是否加購專屬陪同服務」，可先確認哪些人員允許陪同，我們會依場子規則事先篩選，減少入場後才說無法安排的狀況。',
+	},
+	{
+		question: '越南夜店或 KTV 常見的消費陷阱有哪些？',
+		answer:
+			'常見包括：帳單多開酒水或零食、公關服務時答應可加購專屬陪同服務、入座後卻無法安排，臨時加價高於店家牌價、要求額外小費。背包區酒吧還可能菜單與結帳不符。對策是進場前確認總價與含項、不隨意簽不明單據、貴重物品放飯店，並避免喝陌生人遞來的開封飲料，避免非菜單內的額外加購項目。跟團由管家控場，可擋掉大半亂加價。',
+	},
+	{
+		question: '晚上從酒吧、KTV 回飯店，交通怎麼安排比較安全？',
+		answer:
+			'凌晨後路邊攬客摩托或「黑車」風險較高，建議用 Grab 等 App 叫車，價格透明、可留紀錄。峴港市中心、漢江沿岸步行尚可；胡志明第一郡深夜仍建議結伴。若飲酒，盡量不要自己騎機車。我們安排的場次會預留回程時段，必要時可協調飯店接送或司機候時。',
+	},
+	{
+		question: '進夜店或商務 KTV 有着裝限制嗎？',
+		answer:
+			'高端夜店、空中酒吧多要求 Smart Casual，忌拖鞋、汗衫；一般酒吧、KTV 與范五老街相對隨意，T 恤牛仔褲即可。部分商務場會建議長褲、包鞋以配合場內氣氛。不確定時可先向我們確認該晚去哪家，一次講明 dress code，免得到門口才被擋。',
+	},
+	{
+		question: '2026 年越南對 KTV、舞廳的新規定會影響遊客嗎？',
+		answer:
+			'2026 年 5 月起，Karaoke、舞廳在營業時間、安防與無照經營的罰則明顯加重，嚴重可吊銷執照；胡志明亦加強噪音監測。對旅客的實際影響是：持照、資訊透明的店家會更穩，住宅區或無牌場風險變高。選有口碑的商業區會所，並避開臨時加開的地下場，是較穩的做法。',
+	},
+	{
+		question: '付款用越南盾還是美金？可以刷卡嗎？',
+		answer:
+			'場內幾乎都以越南盾現金為主，美金有時可收但匯率常不划算；高端場少數可刷卡，小費與公關服務仍建議備現金。可先換好足夠越盾，或由我們事先說明預估總額，避免現場臨時湊錢。大型連鎖夜店刷卡較多，街邊酒吧仍以現金為主。',
+	},
+];
+
+const travelGuideJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'TravelGuide',
+	name: brandName,
+	description: pageDescription,
+	url: siteUrl,
+	inLanguage: 'zh-TW',
+	about: {
+		'@type': 'Place',
+		name: '越南',
+		containsPlace: [
+			{ '@type': 'City', name: '胡志明市' },
+			{ '@type': 'City', name: '峴港市' },
+		],
+	},
+};
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer,
+		},
+	})),
+};
+---
+
+<html lang="zh-Hant" class="scroll-smooth bg-page antialiased">
+	<head>
+		<GoogleAdsTag />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<meta name="keywords" content={META_KEYWORDS} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{pageTitle}</title>
+		<link rel="canonical" href={siteUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={BRAND_NAME} />
+		<meta property="og:locale" content="zh_TW" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify(travelGuideJsonLd)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+	</head>
+
+	<body class="home-page min-h-screen font-sans text-body antialiased">
+		<HomePageShell>
+			<Navbar homeHref="#top" />
+
+			<main id="top" class="flex w-full flex-col items-center px-4 text-center">
+			<section
+				class="relative my-6 flex h-64 w-full max-w-7xl items-start justify-start overflow-hidden rounded-2xl border border-border bg-page shadow-2xl md:h-96"
+				aria-label={BRAND_NAME}
+			>
+				<img
+					src="/banner.png"
+					alt=""
+					width="1920"
+					height="600"
+					loading="eager"
+					fetchpriority="high"
+					class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+					aria-hidden="true"
+				/>
+				<div
+					class="absolute inset-0 bg-gradient-to-r from-page via-page/80 to-transparent"
+					aria-hidden="true"
+				>
+				</div>
+				<div
+					class="absolute inset-0 bg-gradient-to-t from-page/40 via-transparent to-transparent"
+					aria-hidden="true"
+				>
+				</div>
+				<div
+					class="relative z-10 w-full max-w-xl px-8 pt-4 pb-5 text-left md:px-12 md:pt-6 md:pb-6"
+				>
+					<p
+						class="text-lg font-medium tracking-wide text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] md:text-2xl"
+						style="font-family: 'Noto Sans TC', sans-serif"
+					>
+						大人系 - 夜生活｜胡志明・峴港
+					</p>
+					<p
+						class="mt-3 max-w-md text-sm font-normal leading-relaxed text-[#F8F8F8] drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] md:mt-4 md:text-base"
+						style="font-family: 'Noto Sans TC', sans-serif"
+					>
+						KTV、奧黛與深夜私人行程——物價講清、<span class="whitespace-nowrap">隱形管家控場</span>，講清底價，入夜才敢放開。
+					</p>
+					<div
+						class="mt-4 flex w-[9.25rem] gap-1.5 md:mt-5 md:w-[10.25rem]"
+						aria-label="服務城市"
+					>
+						<a href="/ho-chi-minh" class={cityBtnClass}>
+							胡志明
+						</a>
+						<a href="/da-nang" class={cityBtnClass}>
+							峴港
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="my-6 grid w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-3">
+				<div
+					class="home-panel scroll-reveal col-span-1 rounded-xl p-6 text-left"
+				>
+					<h2
+						class="mb-3 border-b border-border pb-2 text-base font-bold text-[#FFFFFF]"
+					>
+						{BRAND_NAME} ｜ 靠譜的好夥伴
+					</h2>
+					<p class="text-sm leading-relaxed text-body">
+						胡志明與峴港。怎麼玩、玩多深，淺玩深玩都行，對上了再聊。白天、入夜一次排妥；價格講清，現場不追加。盡興玩，安心走。
+					</p>
+				</div>
+				<div
+					class="home-panel scroll-reveal col-span-2 overflow-hidden rounded-xl text-left"
+					aria-label="行程安排流程"
+				>
+					<div class="border-t border-border/80">
+						<div
+							class="scroll-stagger-md grid grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0"
+						>
+							<div class="home-process-step scroll-reveal flex flex-col items-start px-6 py-8 text-left md:px-8">
+								<svg
+									class="mb-4 h-6 w-6 text-[#800020]"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.5"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10Z"
+									></path>
+									<circle cx="12" cy="11" r="2.5"></circle>
+								</svg>
+								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
+									{processSteps[0].title}
+								</h3>
+								<p class="text-sm leading-relaxed text-muted">
+									{processSteps[0].desc}
+								</p>
+							</div>
+							<div class="home-process-step scroll-reveal flex flex-col items-start px-6 py-8 text-left md:px-8">
+								<svg
+									class="mb-4 h-6 w-6 text-[#800020]"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.5"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M8 10h8M8 14h5M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 0 1-2.25-.26L3 21l1.26-5.74A8.96 8.96 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"
+									></path>
+								</svg>
+								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
+									{processSteps[1].title}
+								</h3>
+								<p class="text-sm leading-relaxed text-muted">
+									{processSteps[1].desc}
+								</p>
+							</div>
+							<div class="home-process-step scroll-reveal flex flex-col items-start px-6 py-8 text-left md:px-8">
+								<svg
+									class="mb-4 h-6 w-6 text-[#800020]"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.5"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"
+									></path>
+								</svg>
+								<h3 class="mb-2 text-lg font-bold text-[#FFFFFF]">
+									{processSteps[2].title}
+								</h3>
+								<p class="text-sm leading-relaxed text-muted">
+									{processSteps[2].desc}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<DepartureSchedule />
+
+			<section
+				class="home-panel home-panel--story scroll-reveal my-12 flex w-full max-w-7xl flex-col items-stretch rounded-2xl p-8 text-left md:my-14 md:p-12"
+			>
+				<h2
+					class="mb-3 max-w-3xl text-left text-2xl font-bold leading-snug text-[#FFFFFF] md:mb-4 md:text-3xl"
+				>
+					三十歲之後，你有多久沒為自己活過？
+				</h2>
+				<div
+					class="mb-8 h-[2px] w-full max-w-3xl bg-gradient-to-r from-[#800020] via-[#800020]/35 to-transparent md:mb-10"
+					aria-hidden="true"
+				>
+				</div>
+				<div
+					class="max-w-2xl space-y-5 text-left text-sm leading-relaxed text-[#B3B3B3] md:space-y-6 md:text-[15px] md:leading-7"
+				>
+					<p>
+						打卡、開會、房貸、KPI、還有家裡日復一日的碎念……我以前在科技業跟電商圈打滾時，經歷過跟你一模一樣的窒息生活。
+					</p>
+					<p>
+						某天深夜加班結束，我獨自站在便利商店門口喝著微冷的小酒，突然想問：我那個<span
+							class="whitespace-nowrap">22 歲</span
+						>敢衝、敢玩、渴望自由的靈魂，死到哪去了？
+					</p>
+					<div
+						class="space-y-4 border-t border-border/70 pt-6 text-[#D1D5DB] md:pt-7"
+					>
+						<p>若你也想暫時抽離。</p>
+						<p>
+							下個月，把行程交給我們——<span class="whitespace-nowrap">胡志明</span>或<span
+								class="whitespace-nowrap">峴港</span
+							>的暗夜排程，白天與深夜兩條線一次到位。跟我們一起，在越南那盞酒裡，喚回那個敢衝、敢玩的自己。
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section
+				id="city-section"
+				class="scroll-mt-24 mb-12 mt-6 flex w-full max-w-7xl flex-col items-stretch px-0 md:mt-8 md:mb-14"
+			>
+				<div class="scroll-reveal self-start">
+					<h2
+						class="text-left text-xl font-bold leading-snug text-[#FFFFFF] md:text-2xl"
+					>
+						選擇城市
+					</h2>
+					<div
+						class="mt-2 h-[2px] w-16 bg-gradient-to-r from-[#800020] via-[#800020]/35 to-transparent md:mt-2.5"
+						aria-hidden="true"
+					>
+					</div>
+				</div>
+				<div
+					class="scroll-stagger mt-5 grid w-full grid-cols-1 gap-6 md:mt-6 md:grid-cols-2 md:gap-8"
+				>
+					<a
+						href="/ho-chi-minh"
+						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
+					>
+						<div
+							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
+						>
+							<img
+								src="/home-card-hcm.png"
+								alt="胡志明市 ｜ Saigon"
+								width="800"
+								height="480"
+								loading="lazy"
+								class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+							/>
+							<span
+								class="absolute inset-x-0 bottom-0 z-10 px-3 pb-4 pt-12 text-center text-xl font-bold text-[#FFFFFF] drop-shadow-md md:text-2xl"
+							>
+								胡志明市 ｜ Saigon
+							</span>
+						</div>
+					</a>
+					<a
+						href="/da-nang"
+						class="home-city-card scroll-reveal group flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card/90 p-4 shadow-[0_0_16px_rgba(128,0,32,0.2)] hover:border-[#800020] hover:shadow-[0_0_30px_rgba(128,0,32,0.4)] active:border-[#800020] active:shadow-[0_0_30px_rgba(128,0,32,0.4)]"
+					>
+						<div
+							class="home-city-card__media relative w-full overflow-hidden rounded-xl"
+						>
+							<img
+								src="/home-card-da-nang.png"
+								alt="峴港市 ｜ Da Nang"
+								width="800"
+								height="480"
+								loading="lazy"
+								class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+							/>
+							<span
+								class="absolute inset-x-0 bottom-0 z-10 px-3 pb-4 pt-12 text-center text-xl font-bold text-[#FFFFFF] drop-shadow-md md:text-2xl"
+							>
+								峴港市 ｜ Da Nang
+							</span>
+						</div>
+					</a>
+				</div>
+				<a
+					href={LINE_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="scroll-reveal mt-6 self-center rounded-full bg-gradient-to-r from-[#800020] to-[#5A0016] px-6 py-2 text-sm font-semibold text-[#FFFFFF] transition hover:opacity-90"
+				>
+					更多地點 · 私密諮詢
+				</a>
+			</section>
+
+			<section
+				id="faq-section"
+				class="scroll-mt-24 my-12 flex w-full max-w-7xl flex-col items-stretch text-left lg:grid lg:grid-cols-[minmax(0,11rem)_1fr] lg:items-start lg:gap-x-10 lg:gap-y-0"
+			>
+				<div class="scroll-reveal shrink-0 self-start lg:sticky lg:top-24">
+					<h2 class="text-xl font-bold leading-snug text-[#FFFFFF] md:text-2xl">常見問題</h2>
+					<div
+						class="mt-2 h-[2px] w-16 bg-gradient-to-r from-[#800020] via-[#800020]/35 to-transparent md:mt-2.5"
+						aria-hidden="true"
+					>
+					</div>
+				</div>
+				<div
+					class="scroll-stagger mt-5 grid w-full grid-cols-1 gap-3 sm:gap-3.5 md:mt-6 md:grid-cols-2 md:gap-x-5 md:gap-y-3.5 lg:mt-0"
+				>
+					{
+						faqItems.map((item) => (
+							<details class="smooth-accordion home-panel scroll-reveal group h-fit w-full rounded-2xl text-left">
+								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 text-sm font-semibold leading-snug text-[#FFFFFF] transition-colors hover:bg-surface/30 md:px-5 md:py-3.5 md:text-[15px] [&::-webkit-details-marker]:hidden">
+									<span class="flex items-start justify-between gap-3">
+										<span class="min-w-0">{item.question}</span>
+										<span
+											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-muted"
+											aria-hidden="true"
+										>
+											+
+										</span>
+									</span>
+								</summary>
+								<div class="smooth-accordion__panel">
+									<div
+										class="smooth-accordion__inner border-t border-border px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
+									>
+										<p class="text-xs leading-relaxed text-[#A0AEC0] md:text-[13px]">
+											{item.answer}
+										</p>
+									</div>
+								</div>
+							</details>
+						))
+					}
+				</div>
+			</section>
+
+			<section
+				id="blog-section"
+				class="scroll-mt-24 my-12 flex w-full max-w-7xl flex-col items-stretch text-left lg:grid lg:grid-cols-[max-content_1fr] lg:items-start lg:gap-x-10 lg:gap-y-0"
+			>
+				<div class="scroll-reveal shrink-0 self-start lg:sticky lg:top-24">
+					<h2
+						class="whitespace-nowrap text-xl font-bold leading-snug text-[#FFFFFF] md:text-2xl"
+					>
+						夜旅誌 · 深夜讀物
+					</h2>
+					<div
+						class="mt-2 h-[2px] w-16 bg-gradient-to-r from-[#800020] via-[#800020]/35 to-transparent md:mt-2.5"
+						aria-hidden="true"
+					>
+					</div>
+				</div>
+				<div
+					class="scroll-stagger mt-5 grid w-full grid-cols-1 gap-3 sm:gap-3.5 md:mt-6 md:grid-cols-2 md:gap-x-5 md:gap-y-3.5 lg:mt-0"
+				>
+					{
+						blogPosts.map((post) => (
+							<details class="smooth-accordion home-panel scroll-reveal group h-fit w-full rounded-2xl text-left">
+								<summary class="cursor-pointer list-none rounded-2xl px-4 py-3 transition-colors hover:bg-surface/30 md:px-5 md:py-3.5 [&::-webkit-details-marker]:hidden">
+									<span class="flex items-start justify-between gap-3">
+										<span class="min-w-0 text-left">
+											<span class="text-[11px] text-dim md:text-xs">{post.source}</span>
+											<span class="mt-0.5 block text-sm font-bold leading-snug text-[#FFFFFF] md:text-[15px]">
+												{post.title}
+											</span>
+										</span>
+										<span
+											class="smooth-accordion__icon mt-0.5 shrink-0 text-base leading-none text-muted md:text-lg"
+											aria-hidden="true"
+										>
+											+
+										</span>
+									</span>
+								</summary>
+								<div class="smooth-accordion__panel">
+									<div
+										class="smooth-accordion__inner border-t border-border px-4 pb-3.5 pt-2 md:px-5 md:pb-4 md:pt-2.5"
+									>
+										<p class="text-xs leading-relaxed text-[#B3B3B3] md:text-[13px]">
+											{post.detail}
+										</p>
+										<a
+											href={post.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="mt-3 inline-block text-xs font-medium text-[#9D4EDD] transition hover:text-[#FFFFFF] md:text-sm"
+										>
+											閱讀原文 →
+										</a>
+									</div>
+								</div>
+							</details>
+						))
+					}
+				</div>
+			</section>
+			</main>
+
+			<SiteFooter variant="home" />
+
+			<ScrollToTop />
+			<ScrollRevealInit />
+			<AccordionInit />
+		</HomePageShell>
+	</body>
+</html>

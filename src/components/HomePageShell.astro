@@ -1,0 +1,16 @@
+---
+---
+<div class="home-shell relative isolate min-h-screen">
+	<div class="home-ambience pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+		<div class="home-ambience__side-glow"></div>
+		<div class="home-ambience__mesh"></div>
+		<div class="home-ambience__orb home-ambience__orb--tl"></div>
+		<div class="home-ambience__orb home-ambience__orb--cl"></div>
+		<div class="home-ambience__orb home-ambience__orb--cr"></div>
+		<div class="home-ambience__orb home-ambience__orb--br"></div>
+		<div class="home-ambience__fade"></div>
+	</div>
+	<div class="home-shell__content relative z-10 flex min-h-screen flex-col">
+		<slot />
+	</div>
+</div>
